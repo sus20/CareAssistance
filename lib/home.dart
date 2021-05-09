@@ -15,72 +15,55 @@ class _HomeState extends State<Home> {
         backgroundColor: Colors.blue[200],
         automaticallyImplyLeading: false,
       ),
-      body: Stack(fit: StackFit.expand, children: <Widget>[
-
-        // TODO change to the your file name is navigator
-        Container(
-            width: 20,
-            height: 20,
-            alignment: Alignment.topCenter,
-            child: ElevatedButton(
+      body: Padding(
+        padding: const EdgeInsets.all(25),
+        child: Column(
+          children: [
+            ElevatedButton(
               onPressed: () {
+                // TODO change to the your file name is navigator
+
                 Navigator.pushNamed(context, '/startScreen');
               },
               child: Text(
-                "Sushma",
+                "Andrii",
                 style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               ),
-            )
-        ),
-
-        // TODO change to the your file name is navigator
-        Container(
-            width: 20,
-            height: 20,
-            alignment: Alignment.topLeft,
-            child: ElevatedButton(
+            ),
+            ElevatedButton(
               onPressed: () {
+
+                // TODO change to the your file name is navigator
                 Navigator.pushNamed(context, '/startScreen');
               },
               child: Text(
                 "Jakob",
                 style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               ),
-            )
-        ),
-
-        // TODO change to the your file name is navigator
-        Container(
-            width: 20,
-            height: 20,
-            alignment: Alignment.topRight,
-            child: ElevatedButton(
+            ),
+            ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/startScreen');
-              },
-              child: Text(
-                "Andri",
-                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-              ),
-            )
-        ),
 
-        // TODO change to the your file name is navigator
-        Container(
-            width: 20,
-            height: 20,
-            alignment: Alignment.centerLeft,
-            child: ElevatedButton(
-              onPressed: () {
+                // TODO change to the your file name is navigator
                 Navigator.pushNamed(context, '/startScreen');
               },
               child: Text(
                 "Merlin",
                 style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               ),
-            )
+            ),
+            ElevatedButton(
+              onPressed: () {
+                // TODO change to the your file name is navigator
+                Navigator.pushNamed(context, '/startScreen');
+              },
+              child: Text(
+                "Sushma",
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+              ),
+            ),
+          ],
         ),
-      ]
       ),
     );
   }
