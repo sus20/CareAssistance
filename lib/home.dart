@@ -19,13 +19,18 @@ class _HomeState extends State<Home> {
 
         // TODO change to the your file name is navigator
         Container(
-          width: 20,
-          height: 20,
-          alignment: Alignment.topCenter,
-          child:ElevatedButton(onPressed: () {
-            Navigator.pushNamed(context, '/startScreen');
-          }, child: Text("Sushma"),
-          )
+            width: 20,
+            height: 20,
+            alignment: Alignment.topCenter,
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/startScreen');
+              },
+              child: Text(
+                "Sushma",
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+              ),
+            )
         ),
 
         // TODO change to the your file name is navigator
@@ -33,9 +38,14 @@ class _HomeState extends State<Home> {
             width: 20,
             height: 20,
             alignment: Alignment.topLeft,
-            child:ElevatedButton(onPressed: () {
-              Navigator.pushNamed(context, '/startScreen');
-            }, child: Text("jakob"),
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/startScreen');
+              },
+              child: Text(
+                "Jakob",
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+              ),
             )
         ),
 
@@ -44,9 +54,14 @@ class _HomeState extends State<Home> {
             width: 20,
             height: 20,
             alignment: Alignment.topRight,
-            child:ElevatedButton(onPressed: () {
-              Navigator.pushNamed(context, '/startScreen');
-            }, child: Text("andri"),
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/startScreen');
+              },
+              child: Text(
+                "Andri",
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+              ),
             )
         ),
 
@@ -55,12 +70,18 @@ class _HomeState extends State<Home> {
             width: 20,
             height: 20,
             alignment: Alignment.centerLeft,
-            child:ElevatedButton(onPressed: () {
-              Navigator.pushNamed(context, '/startScreen');
-            }, child: Text("merlin"),
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/startScreen');
+              },
+              child: Text(
+                "Merlin",
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+              ),
             )
         ),
-      ]),
+      ]
+      ),
     );
   }
 }
