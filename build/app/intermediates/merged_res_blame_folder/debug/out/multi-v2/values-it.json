@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\sushm\\OneDrive\\Desktop\\CareAssistance\\CareAssistance\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-it\\values-it.xml",
+            "outputFile": "C:\\Users\\sushm\\OneDrive\\Desktop\\Uni\\2021SS\\Mensch-Computer-Interaktion(Gruppe 2)\\UE\\Meilenstein\\M3\\careAssistant\\CareAssistance\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-it\\values-it.xml",
             "map": [
                 {
                     "source": "C:\\Users\\sushm\\.gradle\\caches\\transforms-2\\files-2.1\\d67cd79abd1ca209502f51c69d23182b\\core-1.1.0\\res\\values-it\\values-it.xml",
