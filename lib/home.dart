@@ -55,7 +55,7 @@ class _HomeState extends State<Home> {
             ElevatedButton(
               onPressed: () {
                 // TODO change to the your file name is navigator
-                Navigator.pushNamed(context, '/startScreen');
+                Navigator.pushNamed(context, '/SushmaStartScreen');
               },
               child: Text(
                 "Sushma",

@@ -1,5 +1,6 @@
 import 'package:care_assistance/startScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:care_assistance/SushmaStartScreen.dart';
 
 import 'home.dart';
 
@@ -9,6 +10,7 @@ void main()  => runApp(MaterialApp(
   routes: {
     '/':(context) => Home(),
     '/startScreen': (context) => StartScreen(),
+    '/SushmaStartScreen': (context) => SushmaStartScreen(),
   },
 
 ));

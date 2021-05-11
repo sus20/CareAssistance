@@ -1,0 +1,6 @@
+io/flutter/plugins/GeneratedPluginRegistrant.java
+ io.flutter.plugins.GeneratedPluginRegistrant
+at/ac/univie/hci/care_assistance/MainActivity.java
+ at.ac.univie.hci.care_assistance.MainActivity
+at/ac/univie/hci/care_assistance/BuildConfig.java
+ at.ac.univie.hci.care_assistance.BuildConfig
