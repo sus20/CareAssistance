@@ -1,15 +1,16 @@
-import 'package:care_assistance/startScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:refresh/screens/ConversationPartner.dart';
+import 'package:refresh/screens/HelloScreen.dart';
+import 'package:refresh/screens/HomeScreen.dart';
 
-import 'home.dart';
 
 
 void main()  => runApp(MaterialApp(
   initialRoute: '/',
   routes: {
-    '/':(context) => Home(),
-    '/startScreen': (context) => StartScreen(),
-
+    // '/': (context) => HomeScreen(key: UniqueKey(),title: '',),
+    '/HelloScreen' : (context) => HelloScreen(key:  UniqueKey()),
+    '/' : (context) => ConversationPartner(),
   },
 
 ));

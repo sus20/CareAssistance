@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\sushm\\OneDrive\\Desktop\\Uni\\2021SS\\Mensch-Computer-Interaktion(Gruppe 2)\\UE\\Meilenstein\\M3\\careAssistant\\CareAssistance\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "outputFile": "C:\\Users\\Public\\Documents\\CareAssistance\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\sushm\\OneDrive\\Desktop\\Uni\\2021SS\\Mensch-Computer-Interaktion(Gruppe 2)\\UE\\Meilenstein\\M3\\careAssistant\\CareAssistance\\android\\app\\src\\main\\res\\values\\styles.xml",
+                    "source": "C:\\Users\\Public\\Documents\\CareAssistance\\android\\app\\src\\main\\res\\values\\styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",
