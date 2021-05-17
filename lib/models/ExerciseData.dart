@@ -34,14 +34,14 @@ Atem: Den Atem frei fließen lassen.'''
 
   // Text-Quelle: https://www.pilates.de/pilates-uebungen-training/training-a-fuer-anfaenger-pilates-uebungen/schulterschoen-pilates-uebung
   {
-    'Video': 'https://youtu.be/8Lm16Tox4HY',
+    'Video': 'https://youtube.com/watch?v=8Lm16Tox4HY',
     'Titel': 'Pilates Schulterschön',
     'Text': '''Arme über die Seite in einem Halbkreisbogen heben. Finger hinter dem Kopf verschränken. Schultern zu den Ohren heben. Schultern fallen lassen. Beide Ellenbogen leicht nach hinten ziehen. Ellenbogen wieder entspannen, ausstrecken und über die Seite zurückbringen. 6 Mal Wiederholen.'''
   },
 
   // Text-Quelle: https://www.yoga-vidya.de/yoga-uebungen/asana/sphinx-36846/
   {
-    'Video': 'https://youtu.be/bmX44wuD3Dg',
+    'Video': 'https://youtube.com/watch?v=bmX44wuD3Dg',
     'Titel': 'Yoga Sphinx',
     'Text': '''Ausgangsposition ist die Bauchlage. Platziere die Ellbogen unter den Schultern und die Unterarme sind auf dem Boden nach vorne ausgerichtet. Die Beine sind geschlossen und das Schambein schiebt in den Boden. Nun richte den Oberkörper mit der Einatmung auf und verweile einige Atemzüge in dieser Position. Lege dann langsam mit der Ausatmung den Oberkörper wieder ab und entspanne in der Bauchlage.'''
   },
@@ -60,7 +60,7 @@ So kenne ich drei verschiedene Arten, beim Stehen das Gewicht auf seine Füße z
 static List<Map<String, String>> meditationData = [
   // Text-Quelle: https://www.yoga-stilvoll.de/blog/mantra-meditation/
   {
-    'Video': 'https://youtu.be/Mhcii0anJZE',
+    'Video': 'https://youtube.com/watch?v=Mhcii0anJZE',
     'Titel': 'Mantra Meditation',
     'Text': '''Such dir zunächst einen gemütlichen und ruhigen Ort, an dem du für ein paar Minuten ungestört bist.
 Setz dich bequem und aufrecht hin. Ob du im Lotussitz, Schneidersitz oder Fersensitz sitzt, ist irrelevant. Hauptsache, du findest eine Position, in der du ohne Schmerzen 15 Minuten sitzen kannst. Gern kannst du Kissen oder Decken als Hilfsmittel nutzen.
@@ -77,28 +77,28 @@ Wenn du fertig bist mit meditieren, bleib noch für eine Minute mit geschlossene
 
   // Text-Quelle: https://www.vital.de/wohlbefinden/entspannung/die-zehn-besten-meditationsuebungen-2186.html
   {
-    'Video': 'https://youtu.be/fjbfF5GMyzI',
+    'Video': 'https://www.youtube.com/watch?v=fjbfF5GMyzI',
     'Titel': 'Rosen Meditation',
     'Text': '''Für das Rosen-Meditieren setzt euch entspannt hin und legt die Fußsohlen auf den Boden. Nun stellt euch Folgendes vor: In eurem Herzen befindet sich eine Rosenknospe, die zu Anfang noch geschlossen ist, ihre Blütenblätter öffnen sich jedoch nach und nach. Die Rose entfaltet sich im Körper und erfüllt den Raum mit ihrem angenehmen Duft.    '''
   },
 
   // Text-Quelle: https://www.vital.de/wohlbefinden/entspannung/die-zehn-besten-meditationsuebungen-2186.html
   {
-    'Video': 'https://youtu.be/TvW3cDQBzP0',
+    'Video': 'https://youtube.com/watch?v=TvW3cDQBzP0',
     'Titel': 'Feuer Meditation',
     'Text': '''Bei der Feuer-Meditation stellt euch vor, dass ihr von einem Meer aus Feuer umgeben seid. Die Flammen stellen keine Gefahr für euch dar. Atmet tief ein und aus. Bei der Feuer-Meditation wirkt ein ähnliches Prinzip wie bei der Aufgabe zuvor, nur nehmt ihr bei jedem Atemzug die Hitze in eurem Körper auf und spürt langsam die innere Wärme in eurem Körper. Beim Ausatmen gebt ihr die Wärme wieder zurück. Nach dieser Meditationstechnik sollte euch angenehm warm sein.    '''
   },
 
   // Text-Quelle: https://www.vital.de/wohlbefinden/entspannung/die-zehn-besten-meditationsuebungen-2186.html
   {
-    'Video': 'https://youtu.be/u6xk_mLCe5A',
+    'Video': 'https://youtube.com/watch?v=u6xk_mLCe5A',
     'Titel': 'Lichtkugel Meditation',
     'Text': '''Durch das Lichtkugel-Meditieren könnt ihr frische Kraft tanken und innere Blockaden lösen. Legt euch dafür bequem auf den Boden und winkelt die Beine leicht an. Die Fußsohle sollte flach auf der Erde liegen. Schließt dann die Augen und stellt euch vor, dass ein warmes Licht über euch hängt. Atmet weiterhin tief und ruhig ein und aus und denkt daran, dass das Licht bei jedem Einatmen in den Körper fließt. Gedanklich wird das Licht in eurem Körper und unter eurem Bauchnabel gebündelt. Ihr fühlt, wie sich unter eurem Bauchnabel eine warme Lichtkugel entfaltet, die in euren gesamten Körper Wärme abgibt.    '''
   },
 
   // Text-Quelle: https://www.vital.de/wohlbefinden/entspannung/die-zehn-besten-meditationsuebungen-2186.html
   {
-    'Video': 'https://youtu.be/t77Mrzukb5g',
+    'Video': 'https://youtube.com/watch?v=t77Mrzukb5g',
     'Titel': 'Samatha Meditation',
     'Text':'''Meditieren war schon immer sehr bedeutsam für den Buddhismus. Die Samatha-Meditation heißt auch Ruhemeditation. Sie beansprucht volle Konzentration. Macht es euch bequem und schließt die Augen. Konzentriert euch vollkommen auf eure Atmung. Der Sinn besteht darin, nicht müde zu werden, sondern wach zu bleiben und alle Art von Ablenkung von euch zu werfen. Macht alles richtig, dann spürt ihr ein Gefühl von Glück und Zufriedenheit.'''
   },

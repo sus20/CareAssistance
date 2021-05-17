@@ -49,7 +49,6 @@ class ExerciseOverview extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return ListTile(
                       onTap: () {
-
                         Navigator.push(
                           context,
                           MaterialPageRoute(
