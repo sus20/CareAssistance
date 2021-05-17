@@ -1,4 +1,4 @@
-#Sat May 15 13:41:59 CEST 2021
-base.0=C\:\\Users\\Public\\Documents\\CareAssistance\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+#Mon May 17 11:25:31 CEST 2021
+base.0=C\:\\Users\\sushm\\OneDrive\\Desktop\\Uni\\2021SS\\Mensch-Computer-Interaktion(Gruppe 2)\\UE\\Meilenstein\\M3\\Care_Assistance\\CareAssistance\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

@@ -6,10 +6,10 @@ class WhatsUpScreen extends StatefulWidget {
 }
 
 List<int> globalSelection = [
-  null,
-  null,
-  null,
-  null
+  -1,
+  -1,
+  -1,
+  -1
 ]; // Each question has one selection, stored in globalSelection
 
 class _WhatsUpScreen extends State<WhatsUpScreen> {
@@ -20,9 +20,9 @@ class _WhatsUpScreen extends State<WhatsUpScreen> {
         IconButton(
           icon: Icon(Icons.sentiment_dissatisfied_outlined),
           iconSize: 30,
-          color: (globalSelection[questionNr] != null &&
+          color: (globalSelection[questionNr] != -1 &&
                   globalSelection[questionNr] ==
-                      0) // if selection is null, nothing has been selected yet
+                      0) // if selection is -1, nothing has been selected yet
               ? Colors.red[900]
               : Colors.black, // color switch on local selection
           onPressed: () {
@@ -34,7 +34,7 @@ class _WhatsUpScreen extends State<WhatsUpScreen> {
         IconButton(
           icon: Icon(Icons.sentiment_dissatisfied),
           iconSize: 30,
-          color: (globalSelection[questionNr] != null &&
+          color: (globalSelection[questionNr] != -1 &&
                   globalSelection[questionNr] == 1)
               ? Colors.orange[900]
               : Colors.black,
@@ -47,7 +47,7 @@ class _WhatsUpScreen extends State<WhatsUpScreen> {
         IconButton(
           icon: Icon(Icons.sentiment_satisfied),
           iconSize: 30,
-          color: (globalSelection[questionNr] != null &&
+          color: (globalSelection[questionNr] != -1 &&
                   globalSelection[questionNr] == 2)
               ? Colors.amber
               : Colors.black,
@@ -60,7 +60,7 @@ class _WhatsUpScreen extends State<WhatsUpScreen> {
         IconButton(
           icon: Icon(Icons.sentiment_satisfied_alt),
           iconSize: 30,
-          color: (globalSelection[questionNr] != null &&
+          color: (globalSelection[questionNr] != -1 &&
                   globalSelection[questionNr] == 3)
               ? Colors.green[200]
               : Colors.black,
@@ -73,7 +73,7 @@ class _WhatsUpScreen extends State<WhatsUpScreen> {
         IconButton(
           icon: Icon(Icons.sentiment_very_satisfied),
           iconSize: 30,
-          color: (globalSelection[questionNr] != null &&
+          color: (globalSelection[questionNr] != -1 &&
                   globalSelection[questionNr] == 4)
               ? Colors.green
               : Colors.black,
@@ -96,10 +96,10 @@ class _WhatsUpScreen extends State<WhatsUpScreen> {
             icon: Icon(Icons.arrow_back),
             onPressed: () {
               globalSelection = [
-                null,
-                null,
-                null,
-                null
+                -1,
+                -1,
+                -1,
+                -1
               ]; // Reset Selection for next time
               Navigator.of(context).pop();
             }),
@@ -153,7 +153,7 @@ class _WhatsUpScreen extends State<WhatsUpScreen> {
                           TextButton.icon(
                             icon: Icon(
                               Icons.self_improvement,
-                              color: (globalSelection[3] != null &&
+                              color: (globalSelection[3] != -1 &&
                                       globalSelection[3] == 0)
                                   ? Colors.green
                                   : Colors.black,
@@ -161,7 +161,7 @@ class _WhatsUpScreen extends State<WhatsUpScreen> {
                             label: Text(
                               'Meditation',
                               style: TextStyle(
-                                  color: (globalSelection[3] != null &&
+                                  color: (globalSelection[3] != -1 &&
                                           globalSelection[3] == 0)
                                       ? Colors.green
                                       : Colors.black),
@@ -175,7 +175,7 @@ class _WhatsUpScreen extends State<WhatsUpScreen> {
                           TextButton.icon(
                             icon: Icon(
                               Icons.not_interested,
-                              color: (globalSelection[3] != null &&
+                              color: (globalSelection[3] != -1 &&
                                       globalSelection[3] == 1)
                                   ? Colors.green
                                   : Colors.black,
@@ -183,7 +183,7 @@ class _WhatsUpScreen extends State<WhatsUpScreen> {
                             label: Text(
                               'Nein',
                               style: TextStyle(
-                                  color: (globalSelection[3] != null &&
+                                  color: (globalSelection[3] != -1 &&
                                           globalSelection[3] == 1)
                                       ? Colors.green
                                       : Colors.black),
@@ -197,7 +197,7 @@ class _WhatsUpScreen extends State<WhatsUpScreen> {
                           TextButton.icon(
                             icon: Icon(
                               Icons.accessibility_new_sharp,
-                              color: (globalSelection[3] != null &&
+                              color: (globalSelection[3] != -1 &&
                                       globalSelection[3] == 2)
                                   ? Colors.green
                                   : Colors.black,
@@ -205,7 +205,7 @@ class _WhatsUpScreen extends State<WhatsUpScreen> {
                             label: Text(
                               'Bewegung',
                               style: TextStyle(
-                                  color: (globalSelection[3] != null &&
+                                  color: (globalSelection[3] != -1 &&
                                           globalSelection[3] == 2)
                                       ? Colors.green
                                       : Colors.black),
@@ -232,13 +232,13 @@ class _WhatsUpScreen extends State<WhatsUpScreen> {
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                         alignment: Alignment.center,
-                        primary: (globalSelection.contains(null))
+                        primary: (globalSelection.contains(-1))
                             ? Colors.grey[
-                                400] // as long as a selection is null the button will be shown grey ('deactivated')
+                                400] // as long as a selection is -1 the button will be shown grey ('deactivated')
                             : ColorData.blueDark),
                     onPressed: () {
-                      if (globalSelection.contains(null)) {
-                        // if "Fertig" button is pressed but not all results are != null show an error message
+                      if (globalSelection.contains(-1)) {
+                        // if "Fertig" button is pressed but not all results are != -1 show an error message
                         showDialog(
                           context: context,
                           builder: (BuildContext context) {
@@ -261,10 +261,10 @@ class _WhatsUpScreen extends State<WhatsUpScreen> {
                         print(
                             'Results:${globalSelection[0]},${globalSelection[1]},${globalSelection[2]},${globalSelection[3]}'); // for later use this would be the gathered results
                         globalSelection = [
-                          null,
-                          null,
-                          null,
-                          null
+                          -1,
+                          -1,
+                          -1,
+                          -1
                         ]; // Reset Selection for next time screen gets opened
                         Navigator.of(context).pop();
                       }
@@ -285,12 +285,12 @@ class _WhatsUpScreen extends State<WhatsUpScreen> {
                         alignment: Alignment.center,
                         primary: ColorData.blueDark),
                     onPressed: () {
-                      // Results can be null without showing warning
+                      // Results can be -1 without showing warning
                       globalSelection = [
-                        null,
-                        null,
-                        null,
-                        null
+                        -1,
+                        -1,
+                        -1,
+                        -1
                       ]; // Reset Selection for next time
                       Navigator.of(context).pop();
                     },

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:refresh/models/ColorData.dart';
+import 'package:refresh/models/AppDrawer.dart';
+import 'package:refresh/models/colorData.dart';
+import 'package:refresh/screens/ExerciseOverview.dart';
 
 const IconData meditation = Icons.self_improvement;
 const IconData conversation = Icons.people;
@@ -7,7 +9,7 @@ const IconData move = Icons.accessibility_new;
 const IconData sun = Icons.wb_sunny;
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen({required Key key, required this.title}) : super(key: key);
+  HomeScreen({Key key, this.title}) : super(key: key);
 
   final String title;
 
@@ -16,35 +18,66 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final globalScaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          leading: IconButton(icon: Icon(Icons.more_vert), onPressed: null),
+          leading: IconButton(
+            icon: Icon(Icons.more_vert),
+            onPressed: () {
+              globalScaffoldKey.currentState.openDrawer();
+            },
+          ),
           actions: [
-            IconButton(icon: Icon(Icons.bar_chart), onPressed: null),
+            IconButton(
+              icon: Icon(Icons.bar_chart),
+              onPressed: () {
+                Navigator.of(context).pushNamed('/statisticScreen');
+              },
+            ),
           ],
           title: Text(widget.title),
         ),
-        backgroundColor: ColorData.blueLight,
+        key: globalScaffoldKey,
+        drawer: AppDrawer.menu(context),
+        backgroundColor: ColorData.blueDark,
         body: Center(
           child: Container(
             padding: EdgeInsets.all(10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Expanded(
-                  child: ElevatedButton.icon(
-                    icon: Icon(sun, size: 40),
-                    label: Text(
-                      "Hey, schön dass du da bist.\nDu bist Level 30",
+                Container(
+                  margin: EdgeInsets.only(top: 15, bottom: 15),
+                  child: SizedBox(
+                    child: TextButton.icon(
+                      icon: Icon(
+                        sun,
+                        size: 40,
+                        color: ColorData.yellow,
+                      ),
+                      label: Text(
+                        "Hey, schön dass du da bist.\nDu bist Level 30",
+                        style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
+                      ),
+                      onPressed: () {},
                       style:
-                          TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                          ElevatedButton.styleFrom(primary: ColorData.blueDark),
                     ),
-                    onPressed: () {},
-                    style:
-                        ElevatedButton.styleFrom(primary: ColorData.blueLight),
+                  ),
+                ),
+                Divider(height: 20, color: ColorData.yellow),
+                Container(
+                  margin: EdgeInsets.only(top: 15, bottom: 15),
+                  child: Text(
+                    "Worauf hast du Lust?",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(color: Colors.white, fontSize: 15),
                   ),
                 ),
                 SizedBox(height: 5),
@@ -56,7 +89,15 @@ class _HomeScreenState extends State<HomeScreen> {
                       style:
                           TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              ExerciseOverview(mode: "meditation"),
+                        ),
+                      );
+                    },
                     style:
                         ElevatedButton.styleFrom(primary: ColorData.blueLight),
                   ),
@@ -70,7 +111,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       style:
                           TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ExerciseOverview(mode: "sport"),
+                        ),
+                      );
+                    },
                     style:
                         ElevatedButton.styleFrom(primary: ColorData.blueLight),
                   ),
@@ -84,7 +132,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       style:
                           TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).pushNamed('/conversationPartner');
+                    },
                     style:
                         ElevatedButton.styleFrom(primary: ColorData.blueLight),
                   ),

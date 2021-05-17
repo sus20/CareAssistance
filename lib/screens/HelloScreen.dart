@@ -3,22 +3,80 @@ import 'package:refresh/models/colorData.dart';
 
 class HelloScreen extends StatelessWidget {
   HelloScreen({
-    required Key key,
+    Key key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        leading: IconButton(icon: Icon(Icons.more_vert), onPressed: null),
-        actions: [
-          IconButton(icon: Icon(Icons.bar_chart), onPressed: null),
-        ],
-        title: Text("hallo"),
-      ),
       backgroundColor: ColorData.blueLight,
-      body: Center(),
+      body: Center(
+        child: Column(
+          children: [
+            Container(
+              margin: EdgeInsets.only(top: 50),
+              width: 200,
+              height: 200,
+              child: CircleAvatar(
+                backgroundImage: AssetImage("assets/logo.png"),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(left: 30, right: 30, top: 40),
+              child: Text(
+                "Schön, dass du hier bist.",
+                style: TextStyle(fontSize: 18, color: Colors.white),
+                textAlign: TextAlign.left,
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 10),
+              child: Divider(
+                color: ColorData.yellowDark,
+                thickness: 0,
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(left: 30, right: 30, top: 15),
+              child: Text(
+                "Wir helfen dir, eine wohlverdiente Pause aus dem Alltag zu nehmen und dabei auf dich selbst zu achten.",
+                style: TextStyle(fontSize: 16, color: Colors.white),
+                textAlign: TextAlign.left,
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(left: 30, right: 30, top: 25),
+              child: Text(
+                "Wähle aus einer Vielzahl an Aktivitäten die gerade passende für dich aus. Lass dir bei der Auswahl ruhig Zeit.",
+                style: TextStyle(fontSize: 16, color: Colors.white),
+                textAlign: TextAlign.left,
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(left: 30, right: 30, top: 25),
+              child: Text(
+                "Bevor wir losstarten, würden wir dir gerne noch ein paar Fragen stellen...",
+                style: TextStyle(fontSize: 16, color: Colors.white),
+                textAlign: TextAlign.left,
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(left: 30, right: 30, top: 25),
+              child: ElevatedButton(
+                child: Text(
+                  "Auf gehts!",
+                ),
+                onPressed: () {
+                  Navigator.pushNamed(context, "/installationScreen");
+                },
+                style: ElevatedButton.styleFrom(
+                  primary: ColorData.blue,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

@@ -340,26 +340,23 @@ class _InstallationScreen extends State<InstallationScreen> {
                       } else {
                         print(
                             'Results:${globalSelection[0]},${globalSelection[1]},${globalSelection[2]},${globalSelection[3]},${globalSelection[4]}'); // for later use this would be the gathered results
-                        globalSelection = [
-                          null,
-                          null,
-                          null,
-                          null,
-                          null
-                        ]; // Reset Selection for next time screen gets opened
 
                         // INSTALLATION:
                         try {
                           var dir = await getApplicationDocumentsDirectory();
-                          var installedToggle = new File('${dir.path}/installed.txt');
+                          var installedToggle =
+                              new File('${dir.path}/installed.txt');
                           installedToggle.create();
                         } on Exception catch (e) {
                           print('Exception while saving Install Toggle: $e');
                         }
                         print('Install complete');
 
-                        if (globalSelection[2] == 0) Navigator.of(context).pushNamed('/'); // ADD HERE 'Falls es nicht reicht' SCREEN!
-                        else Navigator.of(context).pushNamed('/');
+                        if (globalSelection[2] == 0)
+                          Navigator.of(context).pushNamed(
+                              '/healthAlertScreen'); // ADD HERE 'Falls es nicht reicht' SCREEN!
+                        else
+                          Navigator.of(context).pushNamed('/homeScreen');
                       }
                     },
                     child: Text("Fertig"),

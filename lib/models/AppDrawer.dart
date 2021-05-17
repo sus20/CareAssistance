@@ -14,7 +14,8 @@ class AppDrawer {
   // The following links are placeholders where the producer would have to add some links that refer to (probably its own) webpages.
   static const String sampleURL_Ad = 'https://amazon.com';
   static const String sampleURL_Help = 'https://support.google.com/';
-  static const String sampleURL_Bugreport = 'https://flutter.dev/docs/resources/bug-reports';
+  static const String sampleURL_Bugreport =
+      'https://flutter.dev/docs/resources/bug-reports';
 
   // To open a Link on ListTile-Click
   static void openLink(String url) async {
@@ -33,12 +34,17 @@ class AppDrawer {
               leading: Icon(Icons.sentiment_satisfied_alt),
               title: Text('Wie geht\'s'),
               onTap: () {
-                Navigator.pushNamed(context, '/whatsupscreen'); // Open 'Wie geht's' Screen
+                Navigator.pushNamed(
+                    context, '/whatsUpScreen'); // Open 'Wie geht's' Screen
               },
             ),
             ListTile(
               leading: Icon(Icons.settings),
-              title: Text('Einstellungen'), // To be continued
+              title: Text('Einstellungen'),
+              onTap: () {
+                Navigator.pushNamed(
+                    context, '/settingsScreen'); // Open 'Wie geht's' Screen
+              }, // To be continued
             ),
             Divider(
               color: Colors.black,
@@ -52,7 +58,8 @@ class AppDrawer {
             ),
             ListTile(
               leading: Icon(Icons.lock),
-              title: Text('Datenschutz'), // Privacy has its own small overview. it will be displayed via AlertDialog.
+              title: Text(
+                  'Datenschutz'), // Privacy has its own small overview. it will be displayed via AlertDialog.
               onTap: () {
                 showDialog(
                     context: context,

@@ -1,24 +1,20 @@
 import 'package:better_player/better_player.dart';
 import 'package:flutter/material.dart';
-import 'package:video_player/video_player.dart';
 
 class ExerciseView extends StatefulWidget {
-  ExerciseView({required Key key}) : super(key: key);
+  final List<Map<String, String>> exerciseData;
+
+  ExerciseView({Key key, this.exerciseData}) : super(key: key);
 
   @override
   _ExerciseViewState createState() => _ExerciseViewState();
 }
 
 class _ExerciseViewState extends State<ExerciseView> {
-  late VideoPlayerController _controller;
-  late Future<void> _initializeVideoPlayerFuture;
-
 
   @override
   Widget build(BuildContext context) {
-    double videoPlayerScreenScale = 5.8;
-    String videoUrl =
-        "https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4";
+
 
     return Scaffold(
       appBar: AppBar(
@@ -32,8 +28,9 @@ class _ExerciseViewState extends State<ExerciseView> {
           child: AspectRatio(
             aspectRatio: 16 / 9,
             child: BetterPlayerPlaylist(
-             betterPlayerConfiguration: BetterPlayerConfiguration(),
-              betterPlayerPlaylistConfiguration: BetterPlayerPlaylistConfiguration(),
+              betterPlayerConfiguration: BetterPlayerConfiguration(),
+              betterPlayerPlaylistConfiguration:
+                  BetterPlayerPlaylistConfiguration(),
               betterPlayerDataSourceList: createDataSet(),
             ),
           )),
@@ -59,4 +56,3 @@ class _ExerciseViewState extends State<ExerciseView> {
     return dataSourceList;
   }
 }
-
