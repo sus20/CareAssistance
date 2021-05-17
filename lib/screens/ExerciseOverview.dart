@@ -1,55 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:refresh/models/ExerciseData.dart';
 import 'package:refresh/models/colorData.dart';
 
 import 'ExerciseView.dart';
 
 List<Map<String, String>> selectedDataList = [];
-
-final List<Map<String, String>> meditationData = [
-  {
-    "Titel": "Lichtmeditation",
-    "Text": "Das ist super!",
-    "Video": "www.youtube.com/super"
-  },
-  {
-    "Titel": "Angstmeditation",
-    "Text": "Das ist noch besser!",
-    "Video": "www.youtube.com/yo"
-  },
-  {
-    "Titel": "Test3",
-    "Text": "Das ist noch besser!",
-    "Video": "www.youtube.com/yo"
-  },
-  {
-    "Titel": "Test4",
-    "Text": "Das ist noch besser!",
-    "Video": "www.youtube.com/yo"
-  },
-];
-
-final List<Map<String, String>> sportData = [
-  {
-    "Titel": "Lichtmeditation",
-    "Text": "Das ist super!",
-    "Video": "www.youtube.com/super"
-  },
-  {
-    "Titel": "Angstmeditation",
-    "Text": "Das ist noch besser!",
-    "Video": "www.youtube.com/yo"
-  },
-  {
-    "Titel": "Test3",
-    "Text": "Das ist noch besser!",
-    "Video": "www.youtube.com/yo"
-  },
-  {
-    "Titel": "Test4",
-    "Text": "Das ist noch besser!",
-    "Video": "www.youtube.com/yo"
-  },
-];
 
 class ExerciseOverview extends StatelessWidget {
   final mode;
@@ -59,9 +14,9 @@ class ExerciseOverview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (mode == "meditation") {
-      selectedDataList = meditationData;
+      selectedDataList = ExerciseData.meditationData;
     } else {
-      selectedDataList = sportData;
+      selectedDataList = ExerciseData.sportsData;
     }
     return Scaffold(
       appBar: AppBar(
@@ -82,10 +37,10 @@ class ExerciseOverview extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 250,
+              height: selectedDataList.length * 60.0,
               child: Card(
                 child: ListView.builder(
-                  itemCount: meditationData.length,
+                  itemCount: selectedDataList.length,
                   itemBuilder: (context, index) {
                     return ListTile(
                       onTap: () {
@@ -101,7 +56,7 @@ class ExerciseOverview extends StatelessWidget {
                         );
                       },
                       title: Text(
-                        "${selectedDataList[index].values.elementAt(0)}",
+                        "${selectedDataList[index].values.elementAt(1)}",
                         textAlign: TextAlign.center,
                       ),
                     );
