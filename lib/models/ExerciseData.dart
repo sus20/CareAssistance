@@ -14,7 +14,7 @@ Atem: Den Atem frei fließen lassen.'''
 
   // Text-Quelle: https://www.yoga-vidya.de/yoga-uebungen/asana/sonnengruss-23/
   {
-    'Video': 'https://youtu.be/ibfe010kR8E',
+    'Video': 'https://www.youtube.com/watch?v=ibfe010kR8E',
     'Titel': 'Yoga Sonnengruß',
     'Text':
         '''Ausgangsposition ist die Bergstellung (Tadasana). Dafür begibst du dich in eine stabile und aktive Standposition. Die Füße sind geschlossen, das Gewicht sinkt in die Fersen. Bauchmuskeln, Gesäß und Oberschenkel sind leicht angespannt. Schulterblätter schieben nach hinten unten, die Arme sind entspannt und die Schädeldecke strebt nach oben.
