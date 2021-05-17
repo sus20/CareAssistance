@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:refresh/models/ColorData.dart';
 import 'package:refresh/models/ExerciseData.dart';
-import 'package:refresh/models/colorData.dart';
 
 import 'ExerciseView.dart';
 
@@ -20,11 +20,11 @@ class ExerciseOverview extends StatelessWidget {
     }
     return Scaffold(
       appBar: AppBar(
-        title: Text('Übungsübersicht'),
+        title: Text('Übungsübersicht', style: TextStyle(fontWeight: FontWeight.bold),),
         centerTitle: true,
-        backgroundColor: ColorData.blueLight,
+        backgroundColor: ColorData.blue,
       ),
-      backgroundColor: ColorData.blueLight,
+      backgroundColor: ColorData.blueDark,
       body: SingleChildScrollView(
         child: Center(
             child: Column(
@@ -36,10 +36,15 @@ class ExerciseOverview extends StatelessWidget {
                 style: TextStyle(fontSize: 20, color: Colors.white),
               ),
             ),
+            new Padding(padding: new EdgeInsets.all(12.0)),
             SizedBox(
-              height: selectedDataList.length * 60.0,
+              height: selectedDataList.length * 72.0,
               child: Card(
-                child: ListView.builder(
+                color: ColorData.blueLight,
+                child: ListView.separated(
+                  separatorBuilder: (context, index) => Divider(
+                    color:Colors.black,
+                  ),
                   itemCount: selectedDataList.length,
                   itemBuilder: (context, index) {
                     return ListTile(
@@ -57,10 +62,14 @@ class ExerciseOverview extends StatelessWidget {
                       },
                       title: Text(
                         "${selectedDataList[index].values.elementAt(1)}",
+                        style: TextStyle(color: Colors.white, fontSize: 15.0, fontWeight: FontWeight.bold),
                         textAlign: TextAlign.center,
                       ),
+
                     );
                   },
+
+
                 ),
               ),
             )

@@ -20,6 +20,8 @@ class _ConversationPartnerState extends State<ConversationPartner> {
   int km = 0;
   int age = 0;
 
+  double fontSizeOfText = 16.0;
+
   void _handleRadioValueChange1(value) {
     int val = int.parse(value.toString());
     setState(() {
@@ -31,10 +33,11 @@ class _ConversationPartnerState extends State<ConversationPartner> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Gesprächspartner'),
+        title: Text('Gesprächspartner',
+        style: TextStyle(color: Colors.white),),
         centerTitle: true,
         elevation: 11.0,
-        backgroundColor: ColorData.blueLight,
+        backgroundColor: ColorData.blue,
       ),
       body: Container(
         color: ColorData.blueDark,
@@ -54,8 +57,9 @@ class _ConversationPartnerState extends State<ConversationPartner> {
                     child: Text(
                       'ICH SUCHE :',
                       style: new TextStyle(
-                        fontSize: 20.0,
+                       fontSize: 20.0,
                         fontWeight: FontWeight.bold,
+                        color: Colors.white
                       ),
                     ),
                   ),
@@ -69,8 +73,9 @@ class _ConversationPartnerState extends State<ConversationPartner> {
                     title: Text(
                       "Nutzer mit Mail Adresse.",
                       style: TextStyle(
-                        color: Colors.black.withOpacity(0.9),
-                        fontSize: 20.0,
+                        color: Colors.white,
+                        fontSize: fontSizeOfText,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
@@ -83,7 +88,9 @@ class _ConversationPartnerState extends State<ConversationPartner> {
                     title: Text(
                       "Nutzer mit Tel. Nummer.",
                       style: TextStyle(
-                          color: Colors.black.withOpacity(0.9), fontSize: 20.0),
+                          color: Colors.white,
+                        fontSize: fontSizeOfText,
+                        fontWeight: FontWeight.bold,),
                     ),
                   ),
                   ListTile(
@@ -95,7 +102,9 @@ class _ConversationPartnerState extends State<ConversationPartner> {
                     title: Text(
                       "Andere Kontaktmöglichkeit.",
                       style: TextStyle(
-                          color: Colors.black.withOpacity(0.9), fontSize: 20.0),
+                          color: Colors.white,
+                        fontSize: fontSizeOfText,
+                        fontWeight: FontWeight.bold,),
                     ),
                   ),
                   ListTile(
@@ -107,7 +116,9 @@ class _ConversationPartnerState extends State<ConversationPartner> {
                     title: Text(
                       "Adresse (Brief).",
                       style: TextStyle(
-                          color: Colors.black.withOpacity(0.9), fontSize: 20.0),
+                         color: Colors.white,
+                        fontSize: fontSizeOfText,
+                        fontWeight: FontWeight.bold,),
                     ),
                   ),
                 ]),
@@ -125,6 +136,7 @@ class _ConversationPartnerState extends State<ConversationPartner> {
                     child: Text(
                       'DIE/DER PARTNER/IN :',
                       style: new TextStyle(
+                       color: Colors.white,
                         fontSize: 20.0,
                         fontWeight: FontWeight.bold,
                       ),
@@ -142,7 +154,9 @@ class _ConversationPartnerState extends State<ConversationPartner> {
                     title: Text(
                       "soll Männlich sein.",
                       style: TextStyle(
-                          color: Colors.black.withOpacity(0.9), fontSize: 20.0),
+                         color: Colors.white,
+                        fontSize: fontSizeOfText,
+                        fontWeight: FontWeight.bold,),
                     ),
                   ),
                   ListTile(
@@ -157,7 +171,9 @@ class _ConversationPartnerState extends State<ConversationPartner> {
                     title: Text(
                       "soll Weiblich sein.",
                       style: TextStyle(
-                          color: Colors.black.withOpacity(0.9), fontSize: 20.0),
+                         color: Colors.white,
+                        fontSize: fontSizeOfText,
+                        fontWeight: FontWeight.bold,),
                     ),
                   ),
                   ListTile(
@@ -174,8 +190,9 @@ class _ConversationPartnerState extends State<ConversationPartner> {
                         Text(
                           "Soll innerhalb von ",
                           style: TextStyle(
-                              color: Colors.black.withOpacity(0.9),
-                              fontSize: 20.0),
+                              color: Colors.white,
+                        fontSize: fontSizeOfText,
+                        fontWeight: FontWeight.bold,),
                         ),
                         Container(
                           width: 100.0,
@@ -196,8 +213,9 @@ class _ConversationPartnerState extends State<ConversationPartner> {
                         Text(
                           "km Reichweite sein.",
                           style: TextStyle(
-                              color: Colors.black.withOpacity(0.9),
-                              fontSize: 20.0),
+                              color: Colors.white,
+                        fontSize: fontSizeOfText,
+                        fontWeight: FontWeight.bold,),
                         ),
                       ])
                     ]),
@@ -215,7 +233,9 @@ class _ConversationPartnerState extends State<ConversationPartner> {
                       Text(
                         "Soll ca.",
                         style: TextStyle(
-                            color: Colors.black.withOpacity(0.9), fontSize: 20.0),
+                            color: Colors.white,
+                        fontSize: fontSizeOfText,
+                        fontWeight: FontWeight.bold,),
                       ),
                       Container(
                         width: 100.0,
@@ -236,8 +256,9 @@ class _ConversationPartnerState extends State<ConversationPartner> {
                           Text(
                             " Jahre alt sein.",
                             style: TextStyle(
-                                color: Colors.black.withOpacity(0.9),
-                                fontSize: 20.0),
+                                color: Colors.white,
+                        fontSize: fontSizeOfText,
+                        fontWeight: FontWeight.bold),
 
                           ),
                         ],
@@ -266,7 +287,7 @@ class _ConversationPartnerState extends State<ConversationPartner> {
                     borderRadius: BorderRadius.circular(20)),
                 child: Text(
                   'Suchen',
-                  style: TextStyle(fontSize: 24, fontStyle: FontStyle.italic, color: Colors.black),
+                  style: TextStyle(fontSize: 24, fontStyle: FontStyle.italic, color: Colors.blueAccent),
                 ),
               )),
             ),

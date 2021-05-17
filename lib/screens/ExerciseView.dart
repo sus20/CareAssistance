@@ -1,5 +1,6 @@
 import 'package:better_player/better_player.dart';
 import 'package:flutter/material.dart';
+import 'package:refresh/models/ColorData.dart';
 
 class ExerciseView extends StatefulWidget {
   final List<Map<String, String>> exerciseData;
@@ -21,7 +22,7 @@ class _ExerciseViewState extends State<ExerciseView> {
         title: Text('Übungsansicht'),
         centerTitle: true,
         elevation: 11.0,
-        backgroundColor: Colors.blue,
+        backgroundColor: ColorData.blue,
       ),
       body: Container(
           padding: EdgeInsets.all(10),
