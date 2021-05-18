@@ -6,6 +6,7 @@ import 'package:refresh/screens/ExerciseView.dart';
 import 'package:refresh/screens/HealthAlertScreen.dart';
 import 'package:refresh/screens/HelloScreen.dart';
 import 'package:refresh/screens/InstallationScreen.dart';
+import 'package:refresh/screens/PartnerDetails.dart';
 import 'package:refresh/screens/SettingsScreen.dart';
 import 'package:refresh/screens/StatisticScreen.dart';
 import 'package:refresh/screens/WhatsUpScreen.dart';
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
           "/settingsScreen": (context) => SettingsScreen(),
           "/exerciseScreen": (context) => ExerciseView(),
           "/exerciseOverview": (context) => ExerciseOverview(),
+          "/partnerDetails": (context) => PartnerDetails(),
         });
   }
 }

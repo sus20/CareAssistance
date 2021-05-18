@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:refresh/models/ColorData.dart';
+import 'package:refresh/screens/PartnerDetails.dart';
 
 class ConversationPartner extends StatefulWidget {
   const ConversationPartner({Key key}) : super(key: key);
@@ -17,8 +18,8 @@ class _ConversationPartnerState extends State<ConversationPartner> {
   bool _checkBox2 = false;
   bool _checkBox3 = false;
   bool _checkBox4 = false;
-  int km = 0;
-  int age = 0;
+  int km = -1;
+  int age = -1;
 
   double fontSizeOfText = 16.0;
 
@@ -274,7 +275,17 @@ class _ConversationPartnerState extends State<ConversationPartner> {
               style: ElevatedButton.styleFrom(
                   primary: ColorData.blueDark, shadowColor: Colors.white),
               onPressed: () {
-                print('Hi there');
+
+              List<dynamic> radioAndCheckBoxData = [_radioValue1, _checkBox1, _checkBox2, _checkBox3, _checkBox4, km, age];
+
+                Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => PartnerDetails(
+                              radioAndCheckBoxData: radioAndCheckBoxData
+                            ),
+                          ),
+                        );
               },
               child: Ink(
                   child: Container(

@@ -35,7 +35,9 @@ class _ExerciseViewState extends State<ExerciseView> {
         isLive: false,
         enableCaption: false,
         hideControls: false,
+        hideThumbnail: true
       ),
+
     );
 
     super.initState();
@@ -50,6 +52,8 @@ class _ExerciseViewState extends State<ExerciseView> {
   @override
   Widget build(BuildContext context) {
     String seperatedDesc = exerciseDesc;
+
+
 
     return Scaffold(
       backgroundColor: ColorData.blueDark,
@@ -69,7 +73,7 @@ class _ExerciseViewState extends State<ExerciseView> {
               children: <Widget>[
                 new Padding(padding: new EdgeInsets.all(18.0)),
                 Container(
-                  width: 200,
+                  width: 250,
                   padding: EdgeInsets.only(
                     bottom: 4,
                   ),
@@ -100,6 +104,7 @@ class _ExerciseViewState extends State<ExerciseView> {
                     playedColor: Colors.amber,
                     handleColor: Colors.amberAccent,
                   ),
+
                 ),
                 new Padding(padding: new EdgeInsets.all(18.0)),
                 ExpansionTile(
