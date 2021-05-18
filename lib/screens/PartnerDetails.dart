@@ -21,6 +21,8 @@ class _PartnerDetailsState extends State<PartnerDetails> {
   int km = -1;
   int age = -1;
 
+  double fontSizeOfTexts = 16.0;
+
   static List<Map<String, String>> matchPartnerList = [];
 
   void findPartner() {
@@ -72,7 +74,7 @@ class _PartnerDetailsState extends State<PartnerDetails> {
                           matchPartnerList[index]['image']),
                     ),
                     Container(
-                      alignment: Alignment.centerLeft,
+                      alignment: Alignment.center,
                       padding: EdgeInsets.all(10.0),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -83,23 +85,23 @@ class _PartnerDetailsState extends State<PartnerDetails> {
 
                             style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 18.0,
-                                fontWeight: FontWeight.bold),
+                                fontSize: fontSizeOfTexts,
+                                fontWeight: FontWeight.normal),
                           ),
                           _radioValue == 0
                               ? Text(
                                   'Email:  ' + matchPartnerList[index]['email'],
                                   style: TextStyle(
                                       color: Colors.white,
-                                      fontSize: 18.0,
-                                      fontWeight: FontWeight.bold),
+                                      fontSize: fontSizeOfTexts,
+                                      fontWeight: FontWeight.normal),
                                 )
                               : Text(
                                   "Email:  ",
                                   style: TextStyle(
                                       color: Colors.white,
-                                      fontSize: 18.0,
-                                      fontWeight: FontWeight.bold),
+                                      fontSize: fontSizeOfTexts,
+                                      fontWeight: FontWeight.normal),
                                 ),
                           _radioValue == 1
                               ? Text(
@@ -107,15 +109,15 @@ class _PartnerDetailsState extends State<PartnerDetails> {
                                       matchPartnerList[index]['tel'],
                                   style: TextStyle(
                                       color: Colors.white,
-                                      fontSize: 18.0,
-                                      fontWeight: FontWeight.bold),
+                                      fontSize: fontSizeOfTexts,
+                                      fontWeight: FontWeight.normal),
                                 )
                               : Text(
                                   "Tel:  ",
                                   style: TextStyle(
                                       color: Colors.white,
-                                      fontSize: 18.0,
-                                      fontWeight: FontWeight.bold),
+                                      fontSize: fontSizeOfTexts,
+                                      fontWeight: FontWeight.normal),
                                 ),
                           _radioValue == 3
                               ? Text(
@@ -123,15 +125,15 @@ class _PartnerDetailsState extends State<PartnerDetails> {
                                       matchPartnerList[index]['address'],
                                   style: TextStyle(
                                       color: Colors.white,
-                                      fontSize: 18.0,
-                                      fontWeight: FontWeight.bold),
+                                      fontSize: fontSizeOfTexts,
+                                      fontWeight: FontWeight.normal),
                                 )
                               : Text(
                                   "Adresse:  ",
                                   style: TextStyle(
                                       color: Colors.white,
-                                      fontSize: 18.0,
-                                      fontWeight: FontWeight.bold),
+                                      fontSize: fontSizeOfTexts,
+                                      fontWeight: FontWeight.normal),
                                 ),
                           _radioValue == 2
                               ? Text(
@@ -139,40 +141,40 @@ class _PartnerDetailsState extends State<PartnerDetails> {
                                       matchPartnerList[index]['otherContact'],
                                   style: TextStyle(
                                       color: Colors.white,
-                                      fontSize: 18.0,
-                                      fontWeight: FontWeight.bold),
+                                      fontSize: fontSizeOfTexts,
+                                      fontWeight: FontWeight.normal),
                                 )
                               : Text(
                                   "Andere Kontaktmöglichketi:  ",
                                   style: TextStyle(
                                       color: Colors.white,
-                                      fontSize: 18.0,
-                                      fontWeight: FontWeight.bold),
+                                      fontSize: fontSizeOfTexts,
+                                      fontWeight: FontWeight.normal),
                                 ),
                           Text(
                             'Geschlecht:  ' + matchPartnerList[index]['gender'],
                             style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 18.0,
-                                fontWeight: FontWeight.bold),
+                                fontSize: fontSizeOfTexts,
+                                fontWeight: FontWeight.normal),
 
                           ),
                           Text(
                             'Innerhalb von:  ' +
                                 matchPartnerList[index]
                                     ['distanceFromCityCenter'] +
-                                ' KM.',
+                                ' km.',
                             style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 18.0,
-                                fontWeight: FontWeight.bold),
+                                fontSize: fontSizeOfTexts,
+                                fontWeight: FontWeight.normal),
                           ),
                           Text(
                             'Alter:  ' + matchPartnerList[index]['age'],
                             style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 18.0,
-                                fontWeight: FontWeight.bold),
+                                fontSize: fontSizeOfTexts,
+                                fontWeight: FontWeight.normal),
                           ),
                         ],
                       ),

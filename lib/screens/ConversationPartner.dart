@@ -20,7 +20,7 @@ class _ConversationPartnerState extends State<ConversationPartner> {
   int km = -1;
   int age = -1;
 
-  double fontSizeOfText = 16.0;
+  double fontSizeOfText = 15.0;
 
   void _handleRadioValueChange1(value) {
     int val = int.parse(value.toString());
@@ -59,7 +59,7 @@ class _ConversationPartnerState extends State<ConversationPartner> {
                     child: Text(
                       'ICH SUCHE :',
                       style: new TextStyle(
-                          fontSize: 20.0,
+                          fontSize: 18.0,
                           fontWeight: FontWeight.bold,
                           color: Colors.white),
                     ),
@@ -141,7 +141,7 @@ class _ConversationPartnerState extends State<ConversationPartner> {
                       'DIE/DER PARTNER/IN :',
                       style: new TextStyle(
                         color: Colors.white,
-                        fontSize: 20.0,
+                        fontSize: 18.0,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -216,7 +216,7 @@ class _ConversationPartnerState extends State<ConversationPartner> {
                             onChanged: (value) {
                               try {
                                 km = int.parse(value.toString());
-                              } on Exception catch (e) {
+                              } on Exception {
 
                               }
                             },
@@ -266,7 +266,7 @@ class _ConversationPartnerState extends State<ConversationPartner> {
                           onChanged: (value) {
                             try {
                               age = int.parse(value.toString());
-                            } on Exception catch(e){
+                            } on Exception {
 
                             }
                           },
