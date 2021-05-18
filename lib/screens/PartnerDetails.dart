@@ -13,7 +13,7 @@ class PartnerDetails extends StatefulWidget {
 }
 
 class _PartnerDetailsState extends State<PartnerDetails> {
-  int _radioValue1 = -1;
+  int _radioValue = -1;
   bool _checkBox1 = false;
   bool _checkBox2 = false;
   bool _checkBox3 = false;
@@ -26,14 +26,15 @@ class _PartnerDetailsState extends State<PartnerDetails> {
   void findPartner() {
     matchPartnerList.clear();
     for (int i = 0; i < PersonData.personList.length; i++) {
-      if (RefinePersonData.refineDataBasedOnOptions(i, _checkBox1, _checkBox2, _checkBox3, _checkBox4, km, age)) {
+      if (RefinePersonData.refineDataBasedOnOptions(
+          i, _checkBox1, _checkBox2, _checkBox3, _checkBox4, km, age)) {
         matchPartnerList.add(PersonData.personList.elementAt(i));
       }
     }
   }
 
   _PartnerDetailsState(radioAndCheckBoxData) {
-    _radioValue1 = radioAndCheckBoxData[0];
+    _radioValue = radioAndCheckBoxData[0];
     _checkBox1 = radioAndCheckBoxData[1];
     _checkBox2 = radioAndCheckBoxData[2];
     _checkBox3 = radioAndCheckBoxData[3];
@@ -61,30 +62,123 @@ class _PartnerDetailsState extends State<PartnerDetails> {
             shrinkWrap: true,
             scrollDirection: Axis.vertical,
             itemBuilder: (context, index) => Padding(
-                  padding: EdgeInsets.all(2.0),
-                  child: Column(
-                    children: [
-                      CircleAvatar(
-                        radius: 50,
-                        backgroundImage: AssetImage("assets/profilePic/" +
-                            matchPartnerList[index]['image']),
+                padding: EdgeInsets.all(2.0),
+                child: Column(
+                  children: [
+                    Padding(padding: EdgeInsets.all(4.0)),
+                    CircleAvatar(
+                      radius: 50,
+                      backgroundImage: AssetImage("assets/profilePic/" +
+                          matchPartnerList[index]['image']),
+                    ),
+                    Container(
+                      alignment: Alignment.centerLeft,
+                      padding: EdgeInsets.all(10.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            'Name:  ' + matchPartnerList[index]['name'],
+
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          _radioValue == 0
+                              ? Text(
+                                  'Email:  ' + matchPartnerList[index]['email'],
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 18.0,
+                                      fontWeight: FontWeight.bold),
+                                )
+                              : Text(
+                                  "Email:  ",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 18.0,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                          _radioValue == 1
+                              ? Text(
+                                  'Tel.Num.:  ' +
+                                      matchPartnerList[index]['tel'],
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 18.0,
+                                      fontWeight: FontWeight.bold),
+                                )
+                              : Text(
+                                  "Tel:  ",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 18.0,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                          _radioValue == 3
+                              ? Text(
+                                  'Adresse:  ' +
+                                      matchPartnerList[index]['address'],
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 18.0,
+                                      fontWeight: FontWeight.bold),
+                                )
+                              : Text(
+                                  "Adresse:  ",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 18.0,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                          _radioValue == 2
+                              ? Text(
+                                  'Andere Kontaktmöglichkeit:  ' +
+                                      matchPartnerList[index]['otherContact'],
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 18.0,
+                                      fontWeight: FontWeight.bold),
+                                )
+                              : Text(
+                                  "Andere Kontaktmöglichketi:  ",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 18.0,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                          Text(
+                            'Geschlecht:  ' + matchPartnerList[index]['gender'],
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold),
+
+                          ),
+                          Text(
+                            'Innerhalb von:  ' +
+                                matchPartnerList[index]
+                                    ['distanceFromCityCenter'] +
+                                ' KM.',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            'Alter:  ' + matchPartnerList[index]['age'],
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
                       ),
-                      Text( 'Name : ' +  matchPartnerList[index]['name']),
-                      _radioValue1 == 0 ? Text('Email : ' + matchPartnerList[index]['email']) : Text("Email:"),
-                      _radioValue1 == 1 ? Text('Tel. Num. : ' + matchPartnerList[index]['tel']) : Text("Tel: "),
-                      _radioValue1 == 2 ? Text('Adresse : ' + matchPartnerList[index]['address']) : Text("Adresse:"),
-                      _radioValue1 == 3 ? Text('Andere Kontaktmöglichkeit : \n' + matchPartnerList[index]['otherContact']): Text("Andere Kontaktmöglichketi: "),
-                      Text('Geschlecht : ' + matchPartnerList[index]['gender']),
-                      Text('Innerhalb von  : ' + matchPartnerList[index]['distanceFromCityCenter'] +' KM.'),
-                      Text('Alter : ' + matchPartnerList[index]['age'],
-                      style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18.0,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                ),
+                    ),
+                  ],
+                )),
             separatorBuilder: (context, index) => Divider(color: Colors.black),
             itemCount: matchPartnerList.length),
       ),

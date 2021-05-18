@@ -16,29 +16,30 @@ class RefinePersonData {
   }
 
   static bool isAroundAlt(int index, int age) {
-    return int.parse(PersonData.personList.elementAt(index)["age"]) < age;
+    return int.parse(PersonData.personList.elementAt(index)["age"]) >  (age - 5) &&
+    int.parse(PersonData.personList.elementAt(index)["age"]) < (age + 5);
   }
 
   static bool refineDataBasedOnOptions(
       i, _checkBox1, _checkBox2, _checkBox3, _checkBox4, km, age) {
-    List<bool> isPersonSelected = [];
-    bool personSelected = true;
+    List<bool> personSelectedWRTCheckBox = [];
+    bool isPersonSelected = true;
 
     if (_checkBox1 && _checkBox2)
-      isPersonSelected.add(true);
+      personSelectedWRTCheckBox.add(true);
     else {
-      if (_checkBox1) isPersonSelected.add(isMale(i));
-      if (_checkBox2) isPersonSelected.add(isFemale(i));
+      if (_checkBox1) personSelectedWRTCheckBox.add(isMale(i));
+      if (_checkBox2) personSelectedWRTCheckBox.add(isFemale(i));
     }
 
-    if (_checkBox3) isPersonSelected.add(isInInnerhalb(i, km));
-    if (_checkBox4) isPersonSelected.add(isAroundAlt(i, age));
+    if (_checkBox3) personSelectedWRTCheckBox.add(isInInnerhalb(i, km));
+    if (_checkBox4) personSelectedWRTCheckBox.add(isAroundAlt(i, age));
 
-    for (int j = 0; j < isPersonSelected.length; j++) {
-      personSelected = personSelected && isPersonSelected[j];
+    for (int j = 0; j < personSelectedWRTCheckBox.length; j++) {
+      isPersonSelected = isPersonSelected && personSelectedWRTCheckBox[j];
     }
 
-    if (isPersonSelected.length == 0) return false;
-    return personSelected;
+    if (personSelectedWRTCheckBox.length == 0) return false;
+    return isPersonSelected;
   }
 }

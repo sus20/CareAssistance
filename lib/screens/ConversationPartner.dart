@@ -12,8 +12,7 @@ class ConversationPartner extends StatefulWidget {
 }
 
 class _ConversationPartnerState extends State<ConversationPartner> {
-
-  int _radioValue1 = -1;
+  int _radioValue = -1;
   bool _checkBox1 = false;
   bool _checkBox2 = false;
   bool _checkBox3 = false;
@@ -26,7 +25,7 @@ class _ConversationPartnerState extends State<ConversationPartner> {
   void _handleRadioValueChange1(value) {
     int val = int.parse(value.toString());
     setState(() {
-      _radioValue1 = val;
+      _radioValue = val;
     });
   }
 
@@ -34,8 +33,10 @@ class _ConversationPartnerState extends State<ConversationPartner> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Gesprächspartner',
-        style: TextStyle(color: Colors.white),),
+        title: Text(
+          'Gesprächspartner',
+          style: TextStyle(color: Colors.white),
+        ),
         centerTitle: true,
         elevation: 11.0,
         backgroundColor: ColorData.blue,
@@ -51,24 +52,23 @@ class _ConversationPartnerState extends State<ConversationPartner> {
               borderRadius: BorderRadius.circular(30.0),
               child: Container(
                 padding: EdgeInsets.all(10.0),
-                 color: ColorData.blueLight,
+                color: ColorData.blueLight,
                 child: Column(children: <Widget>[
                   Align(
                     alignment: Alignment.topLeft,
                     child: Text(
                       'ICH SUCHE :',
                       style: new TextStyle(
-                       fontSize: 20.0,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white
-                      ),
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
                     ),
                   ),
                   ListTile(
                     focusColor: Colors.green,
                     leading: Radio(
                       value: 0,
-                      groupValue: _radioValue1,
+                      groupValue: _radioValue,
                       onChanged: _handleRadioValueChange1,
                     ),
                     title: Text(
@@ -83,43 +83,46 @@ class _ConversationPartnerState extends State<ConversationPartner> {
                   ListTile(
                     leading: Radio(
                       value: 1,
-                      groupValue: _radioValue1,
+                      groupValue: _radioValue,
                       onChanged: _handleRadioValueChange1,
                     ),
                     title: Text(
                       "Nutzer mit Tel. Nummer.",
                       style: TextStyle(
-                          color: Colors.white,
+                        color: Colors.white,
                         fontSize: fontSizeOfText,
-                        fontWeight: FontWeight.bold,),
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                   ListTile(
                     leading: Radio(
                       value: 2,
-                      groupValue: _radioValue1,
+                      groupValue: _radioValue,
                       onChanged: (val) => _handleRadioValueChange1(val),
                     ),
                     title: Text(
                       "Andere Kontaktmöglichkeit.",
                       style: TextStyle(
-                          color: Colors.white,
+                        color: Colors.white,
                         fontSize: fontSizeOfText,
-                        fontWeight: FontWeight.bold,),
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                   ListTile(
                     leading: Radio(
                       value: 3,
-                      groupValue: _radioValue1,
+                      groupValue: _radioValue,
                       onChanged: _handleRadioValueChange1,
                     ),
                     title: Text(
                       "Adresse (Brief).",
                       style: TextStyle(
-                         color: Colors.white,
+                        color: Colors.white,
                         fontSize: fontSizeOfText,
-                        fontWeight: FontWeight.bold,),
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ]),
@@ -137,7 +140,7 @@ class _ConversationPartnerState extends State<ConversationPartner> {
                     child: Text(
                       'DIE/DER PARTNER/IN :',
                       style: new TextStyle(
-                       color: Colors.white,
+                        color: Colors.white,
                         fontSize: 20.0,
                         fontWeight: FontWeight.bold,
                       ),
@@ -148,16 +151,18 @@ class _ConversationPartnerState extends State<ConversationPartner> {
                       value: _checkBox1,
                       onChanged: (value) {
                         setState(() {
-                          _checkBox1 = value.toString() == 'true' ? true : false;
+                          _checkBox1 =
+                              value.toString() == 'true' ? true : false;
                         });
                       },
                     ),
                     title: Text(
                       "soll Männlich sein.",
                       style: TextStyle(
-                         color: Colors.white,
+                        color: Colors.white,
                         fontSize: fontSizeOfText,
-                        fontWeight: FontWeight.bold,),
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                   ListTile(
@@ -165,16 +170,18 @@ class _ConversationPartnerState extends State<ConversationPartner> {
                       value: _checkBox2,
                       onChanged: (value) {
                         setState(() {
-                          _checkBox2 = value.toString() == 'true' ? true : false;
+                          _checkBox2 =
+                              value.toString() == 'true' ? true : false;
                         });
                       },
                     ),
                     title: Text(
                       "soll Weiblich sein.",
                       style: TextStyle(
-                         color: Colors.white,
+                        color: Colors.white,
                         fontSize: fontSizeOfText,
-                        fontWeight: FontWeight.bold,),
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                   ListTile(
@@ -182,7 +189,8 @@ class _ConversationPartnerState extends State<ConversationPartner> {
                       value: _checkBox3,
                       onChanged: (value) {
                         setState(() {
-                          _checkBox3 = value.toString() == 'true' ? true : false;
+                          _checkBox3 =
+                              value.toString() == 'true' ? true : false;
                         });
                       },
                     ),
@@ -191,11 +199,12 @@ class _ConversationPartnerState extends State<ConversationPartner> {
                         Text(
                           "Soll innerhalb von ",
                           style: TextStyle(
-                              color: Colors.white,
-                        fontSize: fontSizeOfText,
-                        fontWeight: FontWeight.bold,),
+                            color: Colors.white,
+                            fontSize: fontSizeOfText,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                        Container(
+                        SizedBox(
                           width: 100.0,
                           height: 30.0,
                           child: TextField(
@@ -205,7 +214,11 @@ class _ConversationPartnerState extends State<ConversationPartner> {
                             obscureText: false,
                             keyboardType: TextInputType.number,
                             onChanged: (value) {
-                              km = int.parse(value.toString());
+                              try {
+                                km = int.parse(value.toString());
+                              } on Exception catch (e) {
+
+                              }
                             },
                           ),
                         ),
@@ -214,9 +227,10 @@ class _ConversationPartnerState extends State<ConversationPartner> {
                         Text(
                           "km Reichweite sein.",
                           style: TextStyle(
-                              color: Colors.white,
-                        fontSize: fontSizeOfText,
-                        fontWeight: FontWeight.bold,),
+                            color: Colors.white,
+                            fontSize: fontSizeOfText,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ])
                     ]),
@@ -226,7 +240,8 @@ class _ConversationPartnerState extends State<ConversationPartner> {
                       value: _checkBox4,
                       onChanged: (value) {
                         setState(() {
-                          _checkBox4 = value.toString() == 'true' ? true : false;
+                          _checkBox4 =
+                              value.toString() == 'true' ? true : false;
                         });
                       },
                     ),
@@ -234,11 +249,12 @@ class _ConversationPartnerState extends State<ConversationPartner> {
                       Text(
                         "Soll ca.",
                         style: TextStyle(
-                            color: Colors.white,
-                        fontSize: fontSizeOfText,
-                        fontWeight: FontWeight.bold,),
+                          color: Colors.white,
+                          fontSize: fontSizeOfText,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                      Container(
+                      SizedBox(
                         width: 100.0,
                         height: 30.0,
                         child: TextField(
@@ -248,7 +264,11 @@ class _ConversationPartnerState extends State<ConversationPartner> {
                           obscureText: false,
                           keyboardType: TextInputType.number,
                           onChanged: (value) {
-                            age = int.parse(value.toString());
+                            try {
+                              age = int.parse(value.toString());
+                            } on Exception catch(e){
+
+                            }
                           },
                         ),
                       ),
@@ -258,9 +278,8 @@ class _ConversationPartnerState extends State<ConversationPartner> {
                             " Jahre alt sein.",
                             style: TextStyle(
                                 color: Colors.white,
-                        fontSize: fontSizeOfText,
-                        fontWeight: FontWeight.bold),
-
+                                fontSize: fontSizeOfText,
+                                fontWeight: FontWeight.bold),
                           ),
                         ],
                       )
@@ -271,21 +290,51 @@ class _ConversationPartnerState extends State<ConversationPartner> {
             ),
             new Padding(padding: new EdgeInsets.all(4.0)),
             ElevatedButton(
-
               style: ElevatedButton.styleFrom(
                   primary: ColorData.blueDark, shadowColor: Colors.white),
               onPressed: () {
+                // if "Fertig" button is pressed but not all results are != -1 show an error message
+                if (_radioValue == -1 ||
+                    (!_checkBox1 &&
+                        !_checkBox2 &&
+                        !_checkBox3 &&
+                        !_checkBox4)) {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: Text('Unvollständige Details'),
+                        content: Text(
+                            'Bitte wählen Sie eine Option aus dem oberen Feld und mindestens eine Option aus dem unteren Feld.'),
+                        actions: [
+                          TextButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: Text('Okay'))
+                        ],
+                      );
+                    },
+                  );
+                } else {
+                  List<dynamic> radioAndCheckBoxData = [
+                    _radioValue,
+                    _checkBox1,
+                    _checkBox2,
+                    _checkBox3,
+                    _checkBox4,
+                    km,
+                    age
+                  ];
 
-              List<dynamic> radioAndCheckBoxData = [_radioValue1, _checkBox1, _checkBox2, _checkBox3, _checkBox4, km, age];
-
-                Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => PartnerDetails(
-                              radioAndCheckBoxData: radioAndCheckBoxData
-                            ),
-                          ),
-                        );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => PartnerDetails(
+                          radioAndCheckBoxData: radioAndCheckBoxData),
+                    ),
+                  );
+                }
               },
               child: Ink(
                   child: Container(
@@ -298,7 +347,10 @@ class _ConversationPartnerState extends State<ConversationPartner> {
                     borderRadius: BorderRadius.circular(20)),
                 child: Text(
                   'Suchen',
-                  style: TextStyle(fontSize: 24, fontStyle: FontStyle.italic, color: Colors.blueAccent),
+                  style: TextStyle(
+                      fontSize: 24,
+                      fontStyle: FontStyle.italic,
+                      color: Colors.blueAccent),
                 ),
               )),
             ),
