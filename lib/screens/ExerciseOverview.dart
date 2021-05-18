@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:refresh/models/ColorData.dart';
 import 'package:refresh/models/ExerciseData.dart';
-
+import 'package:refresh/models/colorData.dart';
 import 'ExerciseView.dart';
 
 List<Map<String, String>> selectedDataList = [];
+IconData exerciseIcon;
 
 class ExerciseOverview extends StatelessWidget {
   final mode;
@@ -13,18 +13,20 @@ class ExerciseOverview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (mode == "meditation") {
+    if (mode == "Meditation") {
+      exerciseIcon = IconData(61178, fontFamily: 'MaterialIcons');
       selectedDataList = ExerciseData.meditationData;
     } else {
+      exerciseIcon = IconData(58716, fontFamily: 'MaterialIcons');
       selectedDataList = ExerciseData.sportsData;
     }
     return Scaffold(
       appBar: AppBar(
-        title: Text('Übungsübersicht', style: TextStyle(fontWeight: FontWeight.bold),),
+        title: Text('Übungsübersicht'),
         centerTitle: true,
-        backgroundColor: ColorData.blue,
+        backgroundColor: ColorData.blueLight,
       ),
-      backgroundColor: ColorData.blueDark,
+      backgroundColor: ColorData.blueLight,
       body: SingleChildScrollView(
         child: Center(
             child: Column(
@@ -32,44 +34,61 @@ class ExerciseOverview extends StatelessWidget {
             Container(
               margin: EdgeInsets.only(top: 30, bottom: 10),
               child: Text(
-                "Übungen",
+                "$mode",
                 style: TextStyle(fontSize: 20, color: Colors.white),
+                textAlign: TextAlign.center,
               ),
             ),
-            new Padding(padding: new EdgeInsets.all(12.0)),
             SizedBox(
-              height: selectedDataList.length * 72.0,
+              height: 477,
               child: Card(
-                color: ColorData.blueLight,
-                child: ListView.separated(
-                  separatorBuilder: (context, index) => Divider(
-                    color:Colors.black,
-                  ),
+                color: Colors.brown[50],
+                child: ListView.builder(
                   itemCount: selectedDataList.length,
                   itemBuilder: (context, index) {
-                    return ListTile(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => ExerciseView(
-                              exerciseData: [
-                                selectedDataList[index],
-                              ],
+                    return Container(
+                      decoration: BoxDecoration(
+                          border:
+                              Border(bottom: BorderSide(color: Colors.grey))),
+                      child: ListTile(
+                        contentPadding: EdgeInsets.all(12),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ExerciseView(
+                                exerciseData: [
+                                  selectedDataList[index],
+                                ],
+                              ),
                             ),
+                          );
+                        },
+                        title: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              exerciseIcon,
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(left: 10),
+                              child: Text(
+                                "${selectedDataList[index].values.elementAt(1)}",
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ],
+                        ),
+                        subtitle: Container(
+                          margin: EdgeInsets.only(top: 5),
+                          child: Text(
+                            "${selectedDataList[index].values.elementAt(3)}",
+                            textAlign: TextAlign.center,
                           ),
-                        );
-                      },
-                      title: Text(
-                        "${selectedDataList[index].values.elementAt(1)}",
-                        style: TextStyle(color: Colors.white, fontSize: 15.0, fontWeight: FontWeight.bold),
-                        textAlign: TextAlign.center,
+                        ),
                       ),
-
                     );
                   },
-
-
                 ),
               ),
             )

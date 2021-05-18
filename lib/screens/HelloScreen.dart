@@ -18,7 +18,7 @@ class HelloScreen extends StatelessWidget {
               width: 200,
               height: 200,
               child: CircleAvatar(
-                backgroundImage: AssetImage("assets/logo.png"),
+                backgroundImage: AssetImage("assets/refresh_logo.png"),
               ),
             ),
             Container(
