@@ -94,7 +94,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         context,
                         MaterialPageRoute(
                           builder: (context) =>
-                              ExerciseOverview(mode: "meditation"),
+                              ExerciseOverview(mode: "Meditation"),
                         ),
                       );
                     },
@@ -115,7 +115,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => ExerciseOverview(mode: "sport"),
+                          builder: (context) =>
+                              ExerciseOverview(mode: "Bewegung"),
                         ),
                       );
                     },
