@@ -13,21 +13,22 @@ import 'models/colorData.dart';
 import 'package:refresh/screens/HomeScreen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(MyApp(
+  ));
 }
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false, // remove Debug banner.
         theme: ThemeData(
           primaryColor: ColorData.blue,
           accentColor: ColorData.blueDark,
         ),
         initialRoute: "/",
         routes: {
-          "/": (context) => HelloScreen(),
+         "/": (context) => HelloScreen(),
           "/installationScreen": (context) => InstallationScreen(),
           "/homeScreen": (context) => HomeScreen(title: "Startbildschirm"),
           "/healthAlertScreen": (context) => HealthAlertScreen(),
