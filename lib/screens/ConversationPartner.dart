@@ -51,7 +51,7 @@ class _ConversationPartnerState extends State<ConversationPartner> {
             ClipRRect(
               borderRadius: BorderRadius.circular(30.0),
               child: Container(
-                padding: EdgeInsets.all(10.0),
+                padding: EdgeInsets.all(18.0),
                 color: ColorData.blueLight,
                 child: Column(children: <Widget>[
                   Align(
@@ -132,7 +132,7 @@ class _ConversationPartnerState extends State<ConversationPartner> {
             ClipRRect(
               borderRadius: BorderRadius.circular(30.0),
               child: Container(
-                padding: EdgeInsets.all(10.0),
+                padding: EdgeInsets.all(18.0),
                 color: ColorData.blueLight,
                 child: Column(children: <Widget>[
                   Align(
