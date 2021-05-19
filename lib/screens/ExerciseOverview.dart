@@ -14,10 +14,10 @@ class ExerciseOverview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (mode == "Meditation") {
-      exerciseIcon = IconData(61178, fontFamily: 'MaterialIcons');
+      exerciseIcon = Icons.self_improvement;
       selectedDataList = ExerciseData.meditationData;
     } else {
-      exerciseIcon = IconData(58716, fontFamily: 'MaterialIcons');
+      exerciseIcon = Icons.accessibility;
       selectedDataList = ExerciseData.sportsData;
     }
     return Scaffold(
@@ -43,13 +43,19 @@ class ExerciseOverview extends StatelessWidget {
               height: 477,
               child: Card(
                 color: Colors.brown[50],
+                //We got the concept of the ListView builder from the flutter-docs:
+                //https://api.flutter.dev/flutter/widgets/ListView-class.html
                 child: ListView.builder(
                   itemCount: selectedDataList.length,
                   itemBuilder: (context, index) {
                     return Container(
+                      //We got the concept of the BoxDecoration from the flutter-docs:
+                      //https://api.flutter.dev/flutter/painting/BoxDecoration-class.html
                       decoration: BoxDecoration(
-                          border:
-                              Border(bottom: BorderSide(color: Colors.grey))),
+                        border: Border(
+                          bottom: BorderSide(color: Colors.grey),
+                        ),
+                      ),
                       child: ListTile(
                         contentPadding: EdgeInsets.all(12),
                         onTap: () {

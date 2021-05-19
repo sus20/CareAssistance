@@ -7,6 +7,14 @@ class HealthAlertScreen extends StatelessWidget {
     Key key,
   }) : super(key: key);
 
+//We got the concept for launching websites via browser with the url_launcher form the flutter docs:
+//https://flutter.dev/docs/development/packages-and-plugins/using-packages.
+
+  launchHelpURL() {
+    launch(
+        "https://www.gesundheit.gv.at/service/beratungsstellen/psychische-krankheiten");
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,6 +30,7 @@ class HealthAlertScreen extends StatelessWidget {
               width: 450,
               child: Image(
                 //This is a license free image from Pexels.com. It is allowed to use this image for free.
+                //https://www.pexels.com/de-de/foto/mann-menschen-frau-strasse-5710947/
                 //Image from Tima Miroshnichenko from Pexels*/
                 image: AssetImage("assets/therapy.jpg"),
               ),
@@ -57,10 +66,7 @@ class HealthAlertScreen extends StatelessWidget {
                 child: Text(
                   "Hol dir Hilfe.",
                 ),
-                onPressed: () async => {
-                  await launch(
-                      "https://www.gesundheit.gv.at/service/beratungsstellen/psychische-krankheiten")
-                },
+                onPressed: launchHelpURL,
                 style: ElevatedButton.styleFrom(
                   primary: ColorData.blue,
                 ),
@@ -69,13 +75,14 @@ class HealthAlertScreen extends StatelessWidget {
             Container(
               margin: EdgeInsets.only(left: 30, right: 30, top: 0),
               child: TextButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, "/homeScreen");
-                  },
-                  child: Text(
-                    "Trotzdem fortfahren.",
-                    style: TextStyle(color: Colors.black, fontSize: 12),
-                  )),
+                onPressed: () {
+                  Navigator.pushNamed(context, "/homeScreen");
+                },
+                child: Text(
+                  "Trotzdem fortfahren.",
+                  style: TextStyle(color: Colors.black, fontSize: 12),
+                ),
+              ),
             )
           ],
         ),
