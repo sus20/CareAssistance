@@ -14,10 +14,10 @@ class ExerciseOverview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (mode == "Meditation") {
-      exerciseIcon = IconData(61178, fontFamily: 'MaterialIcons');
+      exerciseIcon = Icons.self_improvement;
       selectedDataList = ExerciseData.meditationData;
     } else {
-      exerciseIcon = IconData(58716, fontFamily: 'MaterialIcons');
+      exerciseIcon = Icons.accessibility;
       selectedDataList = ExerciseData.sportsData;
     }
     return Scaffold(

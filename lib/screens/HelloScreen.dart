@@ -18,8 +18,6 @@ class HelloScreen extends StatelessWidget {
               width: 170,
               height: 170,
               child: CircleAvatar(
-                //Our logo (refresh_logo.png) was created with the free logo creator from hatchful:
-                //https://hatchful.shopify.com/de/ .
                 backgroundImage: AssetImage("assets/logo_refresh2.jpg"),
               ),
             ),
