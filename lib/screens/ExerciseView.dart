@@ -2,6 +2,7 @@ import 'package:drop_cap_text/drop_cap_text.dart';
 import 'package:flutter/material.dart';
 import 'package:refresh/models/ColorData.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 
 class ExerciseView extends StatefulWidget {
   final List<Map<String, String>> exerciseData;
@@ -18,6 +19,9 @@ class _ExerciseViewState extends State<ExerciseView> {
   String exerciseDesc;
   YoutubePlayerController _controller;
 
+  final FlutterTts flutterTts = FlutterTts();
+  var isPlaying = false;
+
   _ExerciseViewState(exerciseData) {
     this.exerciseData = exerciseData;
     videoURL = exerciseData[0].values.elementAt(0);
@@ -30,14 +34,12 @@ class _ExerciseViewState extends State<ExerciseView> {
     _controller = YoutubePlayerController(
       initialVideoId: YoutubePlayer.convertUrlToId(videoURL),
       flags: YoutubePlayerFlags(
-        autoPlay: false,
-        forceHD: false,
-        isLive: false,
-        enableCaption: false,
-        hideControls: false,
-        hideThumbnail: true
-      ),
-
+          autoPlay: false,
+          forceHD: false,
+          isLive: false,
+          enableCaption: false,
+          hideControls: false,
+          hideThumbnail: true),
     );
 
     super.initState();
@@ -52,8 +54,19 @@ class _ExerciseViewState extends State<ExerciseView> {
   @override
   Widget build(BuildContext context) {
     String seperatedDesc = exerciseDesc;
+    Future _speak() async {
+      print(await flutterTts.getLanguages);
+      await flutterTts.setLanguage("de-DE");
+      await flutterTts.setPitch(1);
+      await flutterTts.stop();
+      await flutterTts.speak(exerciseDesc);
+      isPlaying = true;
+    }
 
-
+    void _stop() {
+      flutterTts.stop();
+      isPlaying = false;
+    }
 
     return Scaffold(
       backgroundColor: ColorData.blueDark,
@@ -104,7 +117,6 @@ class _ExerciseViewState extends State<ExerciseView> {
                     playedColor: Colors.amber,
                     handleColor: Colors.amberAccent,
                   ),
-
                 ),
                 new Padding(padding: new EdgeInsets.all(18.0)),
                 ExpansionTile(
@@ -119,6 +131,24 @@ class _ExerciseViewState extends State<ExerciseView> {
                       textAlign: TextAlign.center,
                     ),
                     children: [
+                      ElevatedButton(
+                        style: ButtonStyle(backgroundColor:
+                            MaterialStateProperty.resolveWith<Color>(
+                          (Set<MaterialState> states) {
+                            if (states.contains(MaterialState.pressed))
+                              return Colors.white10;
+                            return ColorData.blueDark;
+                          },
+                        )),
+                        child: Icon(
+                          Icons.volume_up,
+                          color: Colors.white,
+                          size: 50.0,
+                        ),
+                        onPressed: () {
+                           isPlaying ? _stop(): _speak();
+                        },
+                      ),
                       Container(
                         padding: EdgeInsets.all(14.0),
                         child: DropCapText(
