@@ -65,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             fontWeight: FontWeight.bold,
                             color: Colors.white),
                       ),
-                      onPressed: () {},
+                      onPressed: null,
                       style:
                           ElevatedButton.styleFrom(primary: ColorData.blueDark),
                     ),

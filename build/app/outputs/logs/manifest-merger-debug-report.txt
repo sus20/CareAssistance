@@ -5,6 +5,7 @@ INJECTED from /Users/jakob/Development/refresh_git/CareAssistance/android/app/sr
 INJECTED from /Users/jakob/Development/refresh_git/CareAssistance/android/app/src/main/AndroidManifest.xml:1:1-41:12
 INJECTED from /Users/jakob/Development/refresh_git/CareAssistance/android/app/src/main/AndroidManifest.xml:1:1-41:12
 MERGED from /Users/jakob/Development/refresh_git/CareAssistance/android/app/src/main/AndroidManifest.xml:1:1-41:12
+MERGED from [:flutter_tts] /Users/jakob/Development/refresh_git/CareAssistance/build/flutter_tts/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:flutter_inappwebview] /Users/jakob/Development/refresh_git/CareAssistance/build/flutter_inappwebview/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-29:12
 MERGED from [:url_launcher] /Users/jakob/Development/refresh_git/CareAssistance/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-14:12
 MERGED from [:path_provider] /Users/jakob/Development/refresh_git/CareAssistance/build/path_provider/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
@@ -110,6 +111,8 @@ uses-sdk
 INJECTED from /Users/jakob/Development/refresh_git/CareAssistance/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/jakob/Development/refresh_git/CareAssistance/android/app/src/main/AndroidManifest.xml
 INJECTED from /Users/jakob/Development/refresh_git/CareAssistance/android/app/src/main/AndroidManifest.xml
+MERGED from [:flutter_tts] /Users/jakob/Development/refresh_git/CareAssistance/build/flutter_tts/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:flutter_tts] /Users/jakob/Development/refresh_git/CareAssistance/build/flutter_tts/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:flutter_inappwebview] /Users/jakob/Development/refresh_git/CareAssistance/build/flutter_inappwebview/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:flutter_inappwebview] /Users/jakob/Development/refresh_git/CareAssistance/build/flutter_inappwebview/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:url_launcher] /Users/jakob/Development/refresh_git/CareAssistance/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44

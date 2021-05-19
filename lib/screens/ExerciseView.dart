@@ -107,7 +107,7 @@ class _ExerciseViewState extends State<ExerciseView> {
                   ),
                   alignment: Alignment.center,
                 ),
-                new Padding(padding: new EdgeInsets.all(48.0)),
+                new Padding(padding: new EdgeInsets.all(20.0)),
                 YoutubePlayer(
                   controller: _controller,
                   liveUIColor: Colors.amber,
@@ -146,7 +146,7 @@ class _ExerciseViewState extends State<ExerciseView> {
                           size: 50.0,
                         ),
                         onPressed: () {
-                           isPlaying ? _stop(): _speak();
+                          isPlaying ? _stop() : _speak();
                         },
                       ),
                       Container(

@@ -32,6 +32,7 @@ class _ConversationPartnerState extends State<ConversationPartner> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorData.blueDark,
       appBar: AppBar(
         title: Text(
           'Gesprächspartner',
@@ -41,44 +42,38 @@ class _ConversationPartnerState extends State<ConversationPartner> {
         elevation: 11.0,
         backgroundColor: ColorData.blue,
       ),
-      body: Container(
-        color: ColorData.blueDark,
-        child: new SingleChildScrollView(
-            child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            new Padding(padding: new EdgeInsets.all(4.0)),
-            ClipRRect(
-              borderRadius: BorderRadius.circular(30.0),
-              child: Container(
-                padding: EdgeInsets.all(18.0),
-                color: ColorData.blueLight,
-                child: Column(children: <Widget>[
+      body: new SingleChildScrollView(
+          child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(5.0),
+            child: Card(
+              child: Column(
+                children: <Widget>[
                   Align(
                     alignment: Alignment.topLeft,
-                    child: Text(
-                      'ICH SUCHE :',
-                      style: new TextStyle(
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white),
+                    child: Padding(
+                      padding:
+                          const EdgeInsets.only(left: 20, top: 20, bottom: 5),
+                      child: Text(
+                        'Ich suche...',
+                      ),
                     ),
                   ),
                   ListTile(
-                    focusColor: Colors.green,
                     leading: Radio(
                       value: 0,
                       groupValue: _radioValue,
                       onChanged: _handleRadioValueChange1,
                     ),
                     title: Text(
-                      "Nutzer mit Mail Adresse.",
+                      "Nutzer mit Mail Adresse",
                       style: TextStyle(
-                        color: Colors.white,
                         fontSize: fontSizeOfText,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
+                    visualDensity: VisualDensity.compact,
                   ),
                   ListTile(
                     leading: Radio(
@@ -87,13 +82,13 @@ class _ConversationPartnerState extends State<ConversationPartner> {
                       onChanged: _handleRadioValueChange1,
                     ),
                     title: Text(
-                      "Nutzer mit Tel. Nummer.",
+                      "Nutzer mit Tel. Nummer",
                       style: TextStyle(
-                        color: Colors.white,
                         fontSize: fontSizeOfText,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
+                    visualDensity: VisualDensity.compact,
                   ),
                   ListTile(
                     leading: Radio(
@@ -102,13 +97,13 @@ class _ConversationPartnerState extends State<ConversationPartner> {
                       onChanged: (val) => _handleRadioValueChange1(val),
                     ),
                     title: Text(
-                      "Andere Kontaktmöglichkeit.",
+                      "Andere Kontaktmöglichkeit",
                       style: TextStyle(
-                        color: Colors.white,
                         fontSize: fontSizeOfText,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
+                    visualDensity: VisualDensity.compact,
                   ),
                   ListTile(
                     leading: Radio(
@@ -117,145 +112,89 @@ class _ConversationPartnerState extends State<ConversationPartner> {
                       onChanged: _handleRadioValueChange1,
                     ),
                     title: Text(
-                      "Adresse (Brief).",
+                      "Adresse (Brief)",
                       style: TextStyle(
-                        color: Colors.white,
                         fontSize: fontSizeOfText,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
+                    visualDensity: VisualDensity.compact,
                   ),
-                ]),
+                  SizedBox(height: 5)
+                ],
               ),
             ),
-            new Padding(padding: new EdgeInsets.all(4.0)),
-            ClipRRect(
-              borderRadius: BorderRadius.circular(30.0),
-              child: Container(
-                padding: EdgeInsets.all(18.0),
-                color: ColorData.blueLight,
-                child: Column(children: <Widget>[
-                  Align(
-                    alignment: Alignment.topLeft,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 5, right: 5, bottom: 5),
+            child: Card(
+              child: Column(children: <Widget>[
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: Padding(
+                    padding:
+                        const EdgeInsets.only(left: 20, top: 20, bottom: 5),
                     child: Text(
-                      'DIE/DER PARTNER/IN :',
-                      style: new TextStyle(
-                        color: Colors.white,
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      'Die/Der Partner/in...',
                     ),
                   ),
-                  ListTile(
-                    leading: Checkbox(
-                      value: _checkBox1,
-                      onChanged: (value) {
-                        setState(() {
-                          _checkBox1 =
-                              value.toString() == 'true' ? true : false;
-                        });
-                      },
-                    ),
-                    title: Text(
-                      "soll Männlich sein.",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: fontSizeOfText,
-                        fontWeight: FontWeight.bold,
-                      ),
+                ),
+                ListTile(
+                  leading: Checkbox(
+                    value: _checkBox1,
+                    onChanged: (value) {
+                      setState(() {
+                        _checkBox1 = value.toString() == 'true' ? true : false;
+                      });
+                    },
+                  ),
+                  title: Text(
+                    "soll Männlich sein.",
+                    style: TextStyle(
+                      fontSize: fontSizeOfText,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                  ListTile(
-                    leading: Checkbox(
-                      value: _checkBox2,
-                      onChanged: (value) {
-                        setState(() {
-                          _checkBox2 =
-                              value.toString() == 'true' ? true : false;
-                        });
-                      },
-                    ),
-                    title: Text(
-                      "soll Weiblich sein.",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: fontSizeOfText,
-                        fontWeight: FontWeight.bold,
-                      ),
+                  visualDensity: VisualDensity.compact,
+                ),
+                ListTile(
+                  leading: Checkbox(
+                    value: _checkBox2,
+                    onChanged: (value) {
+                      setState(() {
+                        _checkBox2 = value.toString() == 'true' ? true : false;
+                      });
+                    },
+                  ),
+                  title: Text(
+                    "soll Weiblich sein.",
+                    style: TextStyle(
+                      fontSize: fontSizeOfText,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                  ListTile(
-                    leading: Checkbox(
-                      value: _checkBox3,
-                      onChanged: (value) {
-                        setState(() {
-                          _checkBox3 =
-                              value.toString() == 'true' ? true : false;
-                        });
-                      },
-                    ),
-                    title: Column(children: [
-                      Row(children: [
-                        Text(
-                          "Soll innerhalb von ",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: fontSizeOfText,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 100.0,
-                          height: 30.0,
-                          child: TextField(
-                            decoration: InputDecoration(
-                              border: OutlineInputBorder(),
-                            ),
-                            obscureText: false,
-                            keyboardType: TextInputType.number,
-                            onChanged: (value) {
-                              try {
-                                km = int.parse(value.toString());
-                              } on Exception {
-
-                              }
-                            },
-                          ),
-                        ),
-                      ]),
-                      Row(children: [
-                        Text(
-                          "km Reichweite sein.",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: fontSizeOfText,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ])
-                    ]),
+                  visualDensity: VisualDensity.compact,
+                ),
+                ListTile(
+                  leading: Checkbox(
+                    value: _checkBox3,
+                    onChanged: (value) {
+                      setState(() {
+                        _checkBox3 = value.toString() == 'true' ? true : false;
+                      });
+                    },
                   ),
-                  ListTile(
-                    leading: Checkbox(
-                      value: _checkBox4,
-                      onChanged: (value) {
-                        setState(() {
-                          _checkBox4 =
-                              value.toString() == 'true' ? true : false;
-                        });
-                      },
-                    ),
-                    title: Row(children: [
+                  title: Column(children: [
+                    Row(children: [
                       Text(
-                        "Soll ca.",
+                        "Soll innerhalb von ",
                         style: TextStyle(
-                          color: Colors.white,
                           fontSize: fontSizeOfText,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       SizedBox(
-                        width: 100.0,
+                        width: 80.0,
                         height: 30.0,
                         child: TextField(
                           decoration: InputDecoration(
@@ -265,98 +204,129 @@ class _ConversationPartnerState extends State<ConversationPartner> {
                           keyboardType: TextInputType.number,
                           onChanged: (value) {
                             try {
-                              age = int.parse(value.toString());
-                            } on Exception {
-
-                            }
+                              km = int.parse(value.toString());
+                            } on Exception {}
                           },
                         ),
                       ),
-                      Row(
-                        children: [
-                          Text(
-                            " Jahre alt sein.",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: fontSizeOfText,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      )
                     ]),
-                  ),
-                ]),
-              ),
-            ),
-            new Padding(padding: new EdgeInsets.all(4.0)),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  primary: ColorData.blueDark, shadowColor: Colors.white),
-              onPressed: () {
-                // if "Fertig" button is pressed but not all results are != -1 show an error message
-                if (_radioValue == -1 ||
-                    (!_checkBox1 &&
-                        !_checkBox2 &&
-                        !_checkBox3 &&
-                        !_checkBox4)) {
-                  showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        title: Text('Unvollständige Details'),
-                        content: Text(
-                            'Bitte wählen Sie eine Option aus dem oberen Feld und mindestens eine Option aus dem unteren Feld.'),
-                        actions: [
-                          TextButton(
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                              },
-                              child: Text('Okay'))
-                        ],
-                      );
-                    },
-                  );
-                } else {
-                  List<dynamic> radioAndCheckBoxData = [
-                    _radioValue,
-                    _checkBox1,
-                    _checkBox2,
-                    _checkBox3,
-                    _checkBox4,
-                    km,
-                    age
-                  ];
-
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => PartnerDetails(
-                          radioAndCheckBoxData: radioAndCheckBoxData),
-                    ),
-                  );
-                }
-              },
-              child: Ink(
-                  child: Container(
-                height: 50,
-                width: 300,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                        colors: [ColorData.blueLight, Colors.indigo[50]]),
-                    borderRadius: BorderRadius.circular(20)),
-                child: Text(
-                  'Suchen',
-                  style: TextStyle(
-                      fontSize: 24,
-                      fontStyle: FontStyle.italic,
-                      color: Colors.blueAccent),
+                    Row(children: [
+                      Text(
+                        "km Reichweite sein.",
+                        style: TextStyle(
+                          fontSize: fontSizeOfText,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ])
+                  ]),
+                  visualDensity: VisualDensity.compact,
                 ),
-              )),
+                ListTile(
+                  leading: Checkbox(
+                    value: _checkBox4,
+                    onChanged: (value) {
+                      setState(() {
+                        _checkBox4 = value.toString() == 'true' ? true : false;
+                      });
+                    },
+                  ),
+                  title: Row(children: [
+                    Text(
+                      "Soll ca. ",
+                      style: TextStyle(
+                        fontSize: fontSizeOfText,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 55.0,
+                      height: 30.0,
+                      child: TextField(
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                        ),
+                        obscureText: false,
+                        keyboardType: TextInputType.number,
+                        onChanged: (value) {
+                          try {
+                            age = int.parse(value.toString());
+                          } on Exception {}
+                        },
+                      ),
+                    ),
+                    Text(
+                      "  Jahre alt sein.",
+                      style: TextStyle(
+                          fontSize: fontSizeOfText,
+                          fontWeight: FontWeight.bold),
+                    )
+                  ]),
+                  visualDensity: VisualDensity.compact,
+                ),
+                SizedBox(height: 5)
+              ]),
             ),
-          ],
-        )),
-      ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 9, right: 9, top: 5),
+            child: SizedBox(
+              width: double.infinity,
+              height: 50,
+              child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    alignment: Alignment.center,
+                    primary: ColorData.blueLight,
+                  ),
+                  onPressed: () {
+                    // if "Fertig" button is pressed but not all results are != -1 show an error message
+                    if (_radioValue == -1 ||
+                        (!_checkBox1 &&
+                            !_checkBox2 &&
+                            !_checkBox3 &&
+                            !_checkBox4)) {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: Text('Unvollständige Details'),
+                            content: Text(
+                                'Bitte wähle mindestens eine Option im oberen und im unteren Feld aus.'),
+                            actions: [
+                              TextButton(
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                  child: Text('Okay'))
+                            ],
+                          );
+                        },
+                      );
+                    } else {
+                      List<dynamic> radioAndCheckBoxData = [
+                        _radioValue,
+                        _checkBox1,
+                        _checkBox2,
+                        _checkBox3,
+                        _checkBox4,
+                        km,
+                        age
+                      ];
+
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => PartnerDetails(
+                              radioAndCheckBoxData: radioAndCheckBoxData),
+                        ),
+                      );
+                    }
+                  },
+                  child: Text('Suchen')),
+            ),
+          ),
+        ],
+      )),
     );
   }
 }

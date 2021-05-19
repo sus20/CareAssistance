@@ -1,5 +1,8 @@
+import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:refresh/models/ColorData.dart';
+import 'package:refresh/models/WorkingDaysTimePicker.dart';
 
 const IconData meditation = Icons.self_improvement;
 const IconData conversation = Icons.people;
@@ -40,7 +43,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           ),
           title: Text(widget.title),
         ),
-        backgroundColor: ColorData.blueLight,
+        backgroundColor: ColorData.blueDark,
         body: Center(
           child: Container(
             padding: EdgeInsets.all(10),
@@ -188,14 +191,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 Expanded(
                     child: Card(
                   child: Padding(
-                    padding: EdgeInsets.all(40),
+                    padding: EdgeInsets.only(left: 40, top: 20, right: 40),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
-                            'Arbeitszeiten',
+                            'Deine Arbeitszeiten',
                             style: TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
@@ -210,61 +213,34 @@ class _SettingsScreenState extends State<SettingsScreen> {
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                  "Mo: 9:00 bis 16:00",
-                                  style: TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white),
+                                WorkingDaysTimePickerWidget(workingDay: "Mo"),
+                                SizedBox(
+                                  height: 2,
                                 ),
-                                Text(
-                                  "Di: 9:00 bis 16:00",
-                                  style: TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white),
+                                WorkingDaysTimePickerWidget(workingDay: "Di"),
+                                SizedBox(
+                                  height: 2,
                                 ),
-                                Text(
-                                  "Mi: 9:00 bis 16:00",
-                                  style: TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white),
+                                WorkingDaysTimePickerWidget(workingDay: "Mi"),
+                                SizedBox(
+                                  height: 2,
                                 ),
-                                Text(
-                                  "Do: 9:00 bis 16:00",
-                                  style: TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white),
+                                WorkingDaysTimePickerWidget(workingDay: "Do"),
+                                SizedBox(
+                                  height: 2,
                                 ),
-                                Text(
-                                  "Fr: 9:00 bis 16:00",
-                                  style: TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white),
-                                ),
+                                WorkingDaysTimePickerWidget(workingDay: "Fr"),
                               ],
                             ),
                             Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                  "Sa: 9:00 bis 12:00",
-                                  style: TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white),
+                                WorkingDaysTimePickerWidget(workingDay: "Sa"),
+                                SizedBox(
+                                  height: 2,
                                 ),
-                                Text(
-                                  "So: Feiertag",
-                                  style: TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white),
-                                ),
+                                WorkingDaysTimePickerWidget(workingDay: "So"),
                               ],
                             )
                           ],
@@ -272,7 +248,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         SizedBox(
                           height: 10,
                         ),
-                        Column(
+                        Expanded(
+                            child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
@@ -336,7 +313,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                               ],
                             )
                           ],
-                        )
+                        )),
                       ],
                     ),
                   ),

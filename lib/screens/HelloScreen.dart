@@ -20,7 +20,7 @@ class HelloScreen extends StatelessWidget {
               child: CircleAvatar(
                 //Our logo (refresh_logo.png) was created with the free logo creator from hatchful:
                 //https://hatchful.shopify.com/de/ .
-                backgroundImage: AssetImage("assets/refresh_logo.png"),
+                backgroundImage: AssetImage("assets/logo_refresh2.jpg"),
               ),
             ),
             Container(

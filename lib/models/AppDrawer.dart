@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:refresh/models/ColorData.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 /* Implementation Notes:
@@ -25,22 +26,44 @@ class AppDrawer {
   static Widget menu(BuildContext context) {
     return Drawer(
       child: Container(
+        color: ColorData.blue,
         child: Column(
           children: [
-            ListTile(
-              title: Text('Refresh'),
+            Padding(
+              padding: EdgeInsets.only(top: 20),
+              child: ListTile(
+                title: Text(
+                  'REfresh',
+                  style: TextStyle(
+                      fontWeight: FontWeight.w800,
+                      fontSize: 18,
+                      color: Colors.white),
+                ),
+              ),
             ),
             ListTile(
-              leading: Icon(Icons.sentiment_satisfied_alt),
-              title: Text('Wie geht\'s'),
+              leading: Icon(
+                Icons.sentiment_satisfied_alt,
+                color: Colors.white,
+              ),
+              title: Text(
+                'Wie geht\'s',
+                style: TextStyle(color: Colors.white),
+              ),
               onTap: () {
                 Navigator.pushNamed(
                     context, '/whatsUpScreen'); // Open 'Wie geht's' Screen
               },
             ),
             ListTile(
-              leading: Icon(Icons.settings),
-              title: Text('Einstellungen'),
+              leading: Icon(
+                Icons.settings,
+                color: Colors.white,
+              ),
+              title: Text(
+                'Einstellungen',
+                style: TextStyle(color: Colors.white),
+              ),
               onTap: () {
                 Navigator.pushNamed(
                     context, '/settingsScreen'); // Open 'Wie geht's' Screen
@@ -52,20 +75,28 @@ class AppDrawer {
               endIndent: 10,
             ),
             ListTile(
-              leading: Icon(Icons.info),
-              title: Text('Hilfe'),
+              leading: Icon(Icons.info, color: Colors.white),
+              title: Text(
+                'Hilfe',
+                style: TextStyle(color: Colors.white),
+              ),
               onTap: () => {openLink(sampleURL_Help)},
             ),
             ListTile(
-              leading: Icon(Icons.lock),
+              leading: Icon(Icons.lock, color: Colors.white),
               title: Text(
-                  'Datenschutz'), // Privacy has its own small overview. it will be displayed via AlertDialog.
+                'Datenschutz',
+                style: TextStyle(color: Colors.white),
+              ), // Privacy has its own small overview. it will be displayed via AlertDialog.
               onTap: () {
                 showDialog(
                     context: context,
                     builder: (BuildContext context) {
                       return AlertDialog(
-                        title: Text('Datenschutz'),
+                        title: Text(
+                          'Datenschutz',
+                          style: TextStyle(color: Colors.white),
+                        ),
                         content: SingleChildScrollView(
                           child: Center(
                             child: Column(
@@ -111,8 +142,11 @@ class AppDrawer {
             ),
             ListTile(
               minVerticalPadding: 1,
-              leading: Icon(Icons.bug_report),
-              title: Text('Ein Problem melden'),
+              leading: Icon(Icons.bug_report, color: Colors.white),
+              title: Text(
+                'Ein Problem melden',
+                style: TextStyle(color: Colors.white),
+              ),
               onTap: () => {openLink(sampleURL_Bugreport)},
             ),
             Expanded(

@@ -28,7 +28,7 @@ class _StatisticScreenState extends State<StatisticScreen> {
           ),
           title: Text(widget.title),
         ),
-        backgroundColor: ColorData.blueLight,
+        backgroundColor: ColorData.blueDark,
         body: Center(
           child: Container(
             padding: EdgeInsets.all(10),
@@ -44,8 +44,7 @@ class _StatisticScreenState extends State<StatisticScreen> {
                         color: Colors.white),
                   ),
                 ),
-                Expanded(
-                    child: Card(
+                SizedBox(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -54,7 +53,7 @@ class _StatisticScreenState extends State<StatisticScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           ImageIcon(AssetImage("assets/crown_icon.png"),
-                              size: 64, color: Colors.white),
+                              size: 64, color: ColorData.yellow),
                           // size: 64, color: ColorData.yellowDark),
                           // Image(
                           //   image: AssetImage("assets/crown_icon.png"),
@@ -66,7 +65,7 @@ class _StatisticScreenState extends State<StatisticScreen> {
                             style: TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.w900,
-                                color: Colors.white),
+                                color: ColorData.yellow),
                             // color: ColorData.yellowDark),
                           ),
                         ],
@@ -127,75 +126,125 @@ class _StatisticScreenState extends State<StatisticScreen> {
                         ),
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
-                            primary: ColorData.blueLight, elevation: 0.5),
+                            primary: ColorData.blueDark, elevation: 0.5),
                       ),
                     ],
                   ),
-                  color: ColorData.blueLight,
-                )),
-                Expanded(
-                  child: Card(
-                    child: Padding(
-                      padding: EdgeInsets.only(left: 5, right: 55, bottom: 5),
-                      child: LineChart(
-                        LineChartData(
-                            axisTitleData: FlAxisTitleData(
-                                leftTitle: AxisTitle(
-                                  titleText: 'Punkte',
-                                  showTitle: true,
-                                  textStyle: TextStyle(
-                                      fontWeight: FontWeight.w500,
-                                      color: ColorData.blueDark),
-                                ),
-                                bottomTitle: AxisTitle(
-                                  titleText: 'Tagen',
-                                  showTitle: true,
-                                  textStyle: TextStyle(
-                                      fontWeight: FontWeight.w500,
-                                      color: ColorData.blueDark),
-                                ),
-                                show: true),
-                            lineBarsData: [
-                              LineChartBarData(colors: [
-                                ColorData.blueDark
-                              ], spots: [
-                                FlSpot(0, 0),
-                                FlSpot(1, 5),
-                                FlSpot(2, 21),
-                                FlSpot(3, 21),
-                                FlSpot(4, 24),
-                                FlSpot(5, 31),
-                                FlSpot(6, 37),
-                                FlSpot(7, 38),
-                                FlSpot(8, 41)
-                              ])
-                            ] // read about it in the LineChartData section
-                            ),
-                        swapAnimationDuration:
-                            Duration(milliseconds: 150), // Optional
-                        swapAnimationCurve: Curves.linear, // Optional
-                      ),
+                ),
+                Divider(color: ColorData.yellow),
+                Center(
+                  child: Container(
+                    margin: EdgeInsets.only(top: 10),
+                    child: Text(
+                      'Statistik',
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
                     ),
-                    color: ColorData.blueLight,
                   ),
+                ),
+                Expanded(
+                  child: Padding(
+                    padding:
+                        EdgeInsets.only(left: 5, right: 55, bottom: 5, top: 10),
+                    child: LineChart(
+                      LineChartData(
+                          lineTouchData: LineTouchData(
+                              enabled: true,
+                              touchTooltipData: LineTouchTooltipData(
+                                  tooltipBgColor: Colors.black)),
+                          titlesData: FlTitlesData(
+                            show: true,
+                            leftTitles: SideTitles(
+                              showTitles: true,
+                              getTextStyles: (value) => const TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 10,
+                              ),
+                              getTitles: (value) {
+                                if (value == 0) return '';
+                                return value.toInt().toString();
+                              },
+                              margin: 12,
+                            ),
+                            bottomTitles: SideTitles(
+                              showTitles: true,
+                              getTextStyles: (value) => const TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 10),
+                              getTitles: (value) {
+                                return '0' +
+                                    (value.toInt() + 1).toString() +
+                                    '.05';
+                              },
+                              margin: 12,
+                              rotateAngle: 35,
+                            ),
+                          ),
+                          axisTitleData: FlAxisTitleData(
+                              leftTitle: AxisTitle(
+                                titleText: 'Punkte',
+                                showTitle: true,
+                                textStyle: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.white),
+                              ),
+                              bottomTitle: AxisTitle(
+                                titleText: 'Tagen',
+                                showTitle: true,
+                                textStyle: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.white),
+                              ),
+                              show: true),
+                          lineBarsData: [
+                            LineChartBarData(colors: [
+                              Colors.white
+                            ], spots: [
+                              FlSpot(0, 0),
+                              FlSpot(1, 5),
+                              FlSpot(2, 21),
+                              FlSpot(3, 21),
+                              FlSpot(4, 24),
+                              FlSpot(5, 31),
+                              FlSpot(6, 37),
+                              FlSpot(7, 38),
+                              FlSpot(8, 41)
+                            ])
+                          ] // read about it in the LineChartData section
+                          ),
+                      swapAnimationDuration:
+                          Duration(milliseconds: 150), // Optional
+                      swapAnimationCurve: Curves.linear, // Optional
+                    ),
+                  ),
+                ),
+
+                Divider(
+                  color: ColorData.yellow,
                 ),
                 Center(
-                  child: Text(
-                    'Heute',
-                    style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white),
+                  child: Container(
+                    margin: EdgeInsets.only(top: 5),
+                    child: Text(
+                      'Heute',
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
+                    ),
                   ),
                 ),
-                Expanded(
-                    child: Card(
+                SizedBox(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       ImageIcon(AssetImage("assets/sleep.png"),
-                          size: 88, color: Colors.white),
+                          size: 88, color: ColorData.yellow),
                       // color: ColorData.yellowDark),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -219,8 +268,7 @@ class _StatisticScreenState extends State<StatisticScreen> {
                       )
                     ],
                   ),
-                  color: ColorData.blueLight,
-                )),
+                )
                 // SizedBox(height: 5),
               ],
             ),

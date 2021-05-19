@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:refresh/models/ColorData.dart';
 import 'package:refresh/models/ExerciseData.dart';
-import 'package:refresh/models/colorData.dart';
 import 'ExerciseView.dart';
 
 List<Map<String, String>> selectedDataList = [];
@@ -14,35 +14,33 @@ class ExerciseOverview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (mode == "Meditation") {
-      exerciseIcon = Icons.self_improvement;
+      exerciseIcon = IconData(61178, fontFamily: 'MaterialIcons');
       selectedDataList = ExerciseData.meditationData;
     } else {
-      exerciseIcon = Icons.accessibility;
+      exerciseIcon = IconData(58716, fontFamily: 'MaterialIcons');
       selectedDataList = ExerciseData.sportsData;
     }
     return Scaffold(
       appBar: AppBar(
-        title: Text('Übungsübersicht'),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_rounded),
+          onPressed: () {
+            Navigator.of(context).pushNamed('/homeScreen');
+          },
+        ),
+        title: Text('Übungen zu $mode'),
         centerTitle: true,
-        backgroundColor: ColorData.blueLight,
+        backgroundColor: ColorData.blue,
       ),
-      backgroundColor: ColorData.blueLight,
-      body: SingleChildScrollView(
-        child: Center(
-            child: Column(
-          children: [
-            Container(
-              margin: EdgeInsets.only(top: 30, bottom: 10),
-              child: Text(
-                "$mode",
-                style: TextStyle(fontSize: 20, color: Colors.white),
-                textAlign: TextAlign.center,
-              ),
-            ),
-            SizedBox(
+      backgroundColor: ColorData.blueDark,
+      body: Center(
+          child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(5),
+            child: SizedBox(
               height: 477,
               child: Card(
-                color: Colors.brown[50],
                 //We got the concept of the ListView builder from the flutter-docs:
                 //https://api.flutter.dev/flutter/widgets/ListView-class.html
                 child: ListView.builder(
@@ -52,10 +50,8 @@ class ExerciseOverview extends StatelessWidget {
                       //We got the concept of the BoxDecoration from the flutter-docs:
                       //https://api.flutter.dev/flutter/painting/BoxDecoration-class.html
                       decoration: BoxDecoration(
-                        border: Border(
-                          bottom: BorderSide(color: Colors.grey),
-                        ),
-                      ),
+                          border:
+                              Border(bottom: BorderSide(color: Colors.grey))),
                       child: ListTile(
                         contentPadding: EdgeInsets.all(12),
                         onTap: () {
@@ -97,10 +93,36 @@ class ExerciseOverview extends StatelessWidget {
                   },
                 ),
               ),
-            )
-          ],
-        )),
-      ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 9, right: 9, top: 5),
+            child: SizedBox(
+              width: double.infinity,
+              height: 50,
+              child: ElevatedButton(
+                child: Text(
+                    'Ich möchte doch lieber ${(mode == 'Meditation') ? 'etwas Bewegung machen' : 'etwas meditieren'}'),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ExerciseOverview(
+                          mode:
+                              (mode == "Bewegung") ? "Meditation" : "Bewegung"),
+                    ),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  alignment: Alignment.center,
+                  primary: ColorData.blueLight,
+                ),
+              ),
+            ),
+          ),
+          Expanded(child: Container()),
+        ],
+      )),
     );
   }
 }
